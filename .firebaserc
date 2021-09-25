@@ -1,5 +1,17 @@
 {
   "projects": {
     "default": "appelent-satisfactory"
+  },
+  "targets": {
+    "appelent-satisfactory": {
+      "hosting": {
+        "prod": [
+          "appelent-satisfactory"
+        ],
+        "dev": [
+          "appelent-satisfactory-dev"
+        ]
+      }
+    }
   }
 }
