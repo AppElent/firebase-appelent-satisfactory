@@ -23,7 +23,7 @@
   "rules": {
     "comma-dangle": "off",
     "jsx-a11y/anchor-is-valid": "off",
-    "linebreak-style": ["warn", "windows"],
+    "linebreak-style": "off",
     "max-len": "off",
     "no-console": "off",
     "no-plusplus": "off",

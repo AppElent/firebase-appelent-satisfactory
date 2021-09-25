@@ -24,7 +24,7 @@ const CustomApp = () => {
   const authdata = useAuth();
   const auth = getAuth();
   const content = useRoutes(routes(auth.currentUser));
-  const apiUrl = '';
+  const apiUrl = 'http:';
 
   return (
     <SocketIOProvider url={apiUrl} opts={socketIoOptions}>

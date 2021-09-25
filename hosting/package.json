@@ -9,6 +9,7 @@
     "eslint-fix": "eslint --fix ./src",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:firebase": "npm install && npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint ./",
