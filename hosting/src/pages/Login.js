@@ -36,8 +36,8 @@ const Login = () => {
         <Container maxWidth="sm">
           <Formik
             initialValues={{
-              email: 'ericjansen@live.nl',
-              password: 'jansen22'
+              email: '',
+              password: ''
             }}
             validationSchema={Yup.object().shape({
               email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
@@ -49,7 +49,7 @@ const Login = () => {
                   // Signed in
                   // const { user } = userCredential;
                   console.log(userCredential);
-                  navigate('/app/dashboard', { replace: true });
+                  navigate('/demo/dashboard', { replace: true });
                 })
                 .catch((error) => {
                   // const errorCode = error.code;

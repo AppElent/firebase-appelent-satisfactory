@@ -13,7 +13,7 @@ import TestPage from './pages/TestPage';
 
 const routes = (isLoggedIn) => [
   {
-    path: 'app',
+    path: 'demo',
     element: isLoggedIn ? <DashboardLayout /> : <Navigate to="/login" />,
     children: [
       { path: 'account', element: <Account /> },
@@ -21,8 +21,21 @@ const routes = (isLoggedIn) => [
       { path: 'dashboard', element: <Dashboard /> },
       { path: 'products', element: <ProductList /> },
       { path: 'settings', element: <Settings /> },
+      { path: '*', element: <Navigate to="/404" /> }
+    ]
+  }, {
+    path: 'app',
+    element: isLoggedIn ? <DashboardLayout /> : <Navigate to="/login" />,
+    children: [
       { path: 'games', element: <></> },
       { path: 'factories', element: <></> },
+      { path: 'testpage', element: <TestPage /> },
+      { path: '*', element: <Navigate to="/404" /> }
+    ]
+  }, {
+    path: 'open',
+    element: <DashboardLayout />,
+    children: [
       { path: 'recipes', element: <></> },
       { path: 'testpage', element: <TestPage /> },
       { path: '*', element: <Navigate to="/404" /> }

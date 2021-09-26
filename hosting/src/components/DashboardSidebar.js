@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { getAuth } from 'firebase/auth';
 import {
   Avatar,
   Box,
@@ -21,12 +22,6 @@ import {
   Users as UsersIcon
 } from 'react-feather';
 import NavItem from './NavItem';
-
-const user = {
-  avatar: '/static/images/avatars/avatar_6.png',
-  jobTitle: 'Senior Developer',
-  name: 'Katarina Smith'
-};
 
 const items = [
   {
@@ -93,6 +88,24 @@ const items = [
 
 const DashboardSidebar = ({ onMobileClose, openMobile }) => {
   const location = useLocation();
+
+  const auth = getAuth();
+
+  let user = {
+    avatar: 'https://media.npr.org/assets/img/2016/01/07/macaca_nigra_self-portrait_custom-a8e13582c9ca6f71f5cd62815b8bb5d6ff112dc2-s800-c15.jpg',
+    jobTitle: 'Noob',
+    name: 'Mongo mongo'
+  };
+
+  console.log(auth);
+
+  if (auth.currentUser) {
+    user = {
+      avatar: auth.currentUser.photoURL || user.avatar,
+      jobTitle: 'Noob',
+      name: auth.currentUser.displayName || 'Unknown Username'
+    };
+  }
 
   useEffect(() => {
     if (openMobile && onMobileClose) {
