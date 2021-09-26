@@ -9,7 +9,8 @@
     ],
     "source": "functions"
   },
-  "hosting": {
+  "hosting": [{
+    "target": "prod",
     "public": "hosting/build",
     "ignore": [
       "firebase.json",
@@ -22,5 +23,19 @@
         "destination": "/index.html"
       }
     ]
-  }
+  },{
+    "target": "dev",
+    "public": "hosting/build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }]
 }
