@@ -32,3 +32,4 @@ npm install i18next i18next-browser-languagedetector socket.io-client firebase r
 
 ```
 logout knop toevoegen
+test
