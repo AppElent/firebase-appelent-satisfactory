@@ -124,7 +124,8 @@ const Login = () => {
                             // The email of the user's account used.
                             // const { email } = error;
                             // The AuthCredential type that was used.
-                            // const credential = FacebookAuthProvider.credentialFromError(error);
+                            const credential = FacebookAuthProvider.credentialFromError(error);
+                            console.log(error, credential);
 
                             // ...
                           });
