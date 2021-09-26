@@ -2,7 +2,9 @@ import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
-import { signInWithEmailAndPassword, getAuth } from 'firebase/auth';
+import {
+  signInWithEmailAndPassword, getAuth, FacebookAuthProvider, signInWithPopup
+} from 'firebase/auth';
 import {
   Box,
   Button,
@@ -15,9 +17,12 @@ import {
 import FacebookIcon from '../icons/Facebook';
 import GoogleIcon from '../icons/Google';
 
+const provider = new FacebookAuthProvider();
+
 const Login = () => {
   const navigate = useNavigate();
   const auth = getAuth();
+  auth.useDeviceLanguage();
 
   return (
     <>
@@ -96,7 +101,30 @@ const Login = () => {
                       color="primary"
                       fullWidth
                       startIcon={<FacebookIcon />}
-                      onClick={handleSubmit}
+                      onClick={() => {
+                        signInWithPopup(auth, provider)
+                          .then((result) => {
+                            // The signed-in user info.
+                            const { user } = result;
+
+                            // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+                            const credential = FacebookAuthProvider.credentialFromResult(result);
+                            const { accessToken } = credential;
+
+                            // ...
+                          })
+                          .catch((error) => {
+                            // Handle Errors here.
+                            const errorCode = error.code;
+                            const errorMessage = error.message;
+                            // The email of the user's account used.
+                            const { email } = error;
+                            // The AuthCredential type that was used.
+                            const credential = FacebookAuthProvider.credentialFromError(error);
+
+                            // ...
+                          });
+                      }}
                       size="large"
                       variant="contained"
                     >
