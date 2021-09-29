@@ -2,7 +2,9 @@ import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
-import { signInWithEmailAndPassword, getAuth } from 'firebase/auth';
+import {
+  signInWithEmailAndPassword, getAuth, FacebookAuthProvider, GoogleAuthProvider, signInWithPopup
+} from 'firebase/auth';
 import {
   Box,
   Button,
@@ -15,9 +17,14 @@ import {
 import FacebookIcon from '../icons/Facebook';
 import GoogleIcon from '../icons/Google';
 
+const provider = new FacebookAuthProvider();
+const googleprovider = new GoogleAuthProvider();
+googleprovider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+
 const Login = () => {
   const navigate = useNavigate();
   const auth = getAuth();
+  auth.useDeviceLanguage();
 
   return (
     <>
@@ -36,8 +43,8 @@ const Login = () => {
         <Container maxWidth="sm">
           <Formik
             initialValues={{
-              email: 'ericjansen@live.nl',
-              password: 'jansen22'
+              email: '',
+              password: ''
             }}
             validationSchema={Yup.object().shape({
               email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
@@ -49,7 +56,7 @@ const Login = () => {
                   // Signed in
                   // const { user } = userCredential;
                   console.log(userCredential);
-                  navigate('/app/dashboard', { replace: true });
+                  navigate('/demo/dashboard', { replace: true });
                 })
                 .catch((error) => {
                   // const errorCode = error.code;
@@ -96,7 +103,33 @@ const Login = () => {
                       color="primary"
                       fullWidth
                       startIcon={<FacebookIcon />}
-                      onClick={handleSubmit}
+                      onClick={() => {
+                        signInWithPopup(auth, provider)
+                          .then((result) => {
+                            console.log(result);
+                            // The signed-in user info.
+                            // const { user } = result;
+
+                            // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+                            // const credential = FacebookAuthProvider.credentialFromResult(result);
+                            // const { accessToken } = credential;
+
+                            // ...
+                          })
+                          .catch((error) => {
+                            console.log(error);
+                            // Handle Errors here.
+                            // const errorCode = error.code;
+                            // const errorMessage = error.message;
+                            // The email of the user's account used.
+                            // const { email } = error;
+                            // The AuthCredential type that was used.
+                            const credential = FacebookAuthProvider.credentialFromError(error);
+                            console.log(error, credential);
+
+                            // ...
+                          });
+                      }}
                       size="large"
                       variant="contained"
                     >
@@ -111,7 +144,28 @@ const Login = () => {
                     <Button
                       fullWidth
                       startIcon={<GoogleIcon />}
-                      onClick={handleSubmit}
+                      onClick={() => {
+                        signInWithPopup(auth, googleprovider)
+                          .then((result) => {
+                            console.log(result);
+                            // This gives you a Google Access Token. You can use it to access the Google API.
+                            // const credential = GoogleAuthProvider.credentialFromResult(result);
+                            // const token = credential.accessToken;
+                            // The signed-in user info.
+                            // const { user } = result;
+                            // ...
+                          }).catch((error) => {
+                            console.log(error);
+                            // Handle Errors here.
+                            // const errorCode = error.code;
+                            // const errorMessage = error.message;
+                            // The email of the user's account used.
+                            // const { email } = error;
+                            // The AuthCredential type that was used.
+                            // const credential = GoogleAuthProvider.credentialFromError(error);
+                            // ...
+                          });
+                      }}
                       size="large"
                       variant="contained"
                     >

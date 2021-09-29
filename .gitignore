@@ -1,3 +1,4 @@
+# exclude build and node_modules
 hosting/build/
 hosting/node_modules/
 

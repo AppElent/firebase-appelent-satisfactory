@@ -1,23 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { initializeApp } from 'firebase/app';
 import {
   getAuth, onAuthStateChanged
 } from 'firebase/auth';
-
-/**
- * Firebase configuration.
- */
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: 'AIzaSyAUjs6ab0nLxu8INHNNFKAwnwd96nkpS0Y',
-  authDomain: 'appelent-satisfactory.firebaseapp.com',
-  projectId: 'appelent-satisfactory',
-  storageBucket: 'appelent-satisfactory.appspot.com',
-  messagingSenderId: '77073885556',
-  appId: '1:77073885556:web:0d0fbdeb290fddc3d46421',
-  measurementId: 'G-VNYEG232K0'
-};
-initializeApp(firebaseConfig);
 
 const useAuth = () => {
   const [authData, setAuthData] = useState({

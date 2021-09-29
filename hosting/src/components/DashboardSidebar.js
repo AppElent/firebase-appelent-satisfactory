@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { getAuth } from 'firebase/auth';
 import {
   Avatar,
   Box,
@@ -10,89 +11,28 @@ import {
   List,
   Typography
 } from '@material-ui/core';
-import {
-  AlertCircle as AlertCircleIcon,
-  BarChart as BarChartIcon,
-  Lock as LockIcon,
-  Settings as SettingsIcon,
-  ShoppingBag as ShoppingBagIcon,
-  User as UserIcon,
-  UserPlus as UserPlusIcon,
-  Users as UsersIcon
-} from 'react-feather';
+import items from 'modules/Navigation';
+import Coffee from 'modules/Coffee';
 import NavItem from './NavItem';
-
-const user = {
-  avatar: '/static/images/avatars/avatar_6.png',
-  jobTitle: 'Senior Developer',
-  name: 'Katarina Smith'
-};
-
-const items = [
-  {
-    href: '/app/dashboard',
-    icon: BarChartIcon,
-    title: 'Dashboard'
-  },
-  {
-    href: '/app/customers',
-    icon: UsersIcon,
-    title: 'Customers'
-  },
-  {
-    href: '/app/products',
-    icon: ShoppingBagIcon,
-    title: 'Products'
-  },
-  {
-    href: '/app/games',
-    icon: ShoppingBagIcon,
-    title: 'Games'
-  },
-  {
-    href: '/app/factories',
-    icon: ShoppingBagIcon,
-    title: 'Factories'
-  },
-  {
-    href: '/app/recipes',
-    icon: ShoppingBagIcon,
-    title: 'Recipes'
-  },
-  {
-    href: '/app/testpage',
-    icon: ShoppingBagIcon,
-    title: 'TestPage'
-  },
-  {
-    href: '/app/account',
-    icon: UserIcon,
-    title: 'Account'
-  },
-  {
-    href: '/app/settings',
-    icon: SettingsIcon,
-    title: 'Settings'
-  },
-  {
-    href: '/login',
-    icon: LockIcon,
-    title: 'Login'
-  },
-  {
-    href: '/register',
-    icon: UserPlusIcon,
-    title: 'Register'
-  },
-  {
-    href: '/404',
-    icon: AlertCircleIcon,
-    title: 'Error'
-  }
-];
 
 const DashboardSidebar = ({ onMobileClose, openMobile }) => {
   const location = useLocation();
+
+  const auth = getAuth();
+
+  let user = {
+    avatar: 'https://media.npr.org/assets/img/2016/01/07/macaca_nigra_self-portrait_custom-a8e13582c9ca6f71f5cd62815b8bb5d6ff112dc2-s800-c15.jpg',
+    jobTitle: 'Noob',
+    name: '<Not logged in>'
+  };
+
+  if (auth.currentUser) {
+    user = {
+      avatar: auth.currentUser.photoURL || user.avatar,
+      jobTitle: 'Noob',
+      name: auth.currentUser.displayName || 'Unknown Username'
+    };
+  }
 
   useEffect(() => {
     if (openMobile && onMobileClose) {
@@ -124,7 +64,7 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
             width: 64,
             height: 64
           }}
-          to="/app/account"
+          to="/demo/account"
         />
         <Typography
           color="textPrimary"
@@ -153,6 +93,23 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
         </List>
       </Box>
       <Box sx={{ flexGrow: 1 }} />
+      <Box
+        sx={{
+          // backgroundColor: 'background.default',
+          // m: 2,
+          p: 2
+        }}
+      >
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            pt: 2
+          }}
+        >
+          <Coffee />
+        </Box>
+      </Box>
     </Box>
   );
 
@@ -173,7 +130,7 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
           {content}
         </Drawer>
       </Hidden>
-      <Hidden xlDown>
+      <Hidden lgDown>
         <Drawer
           anchor="left"
           open
