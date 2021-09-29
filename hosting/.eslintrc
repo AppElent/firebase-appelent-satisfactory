@@ -7,11 +7,12 @@
   "extends": [
     "airbnb"
   ],
+  "ignorePatterns": "**/build/*",
   "settings": {
     "import/resolver": {
       "node": {
         "paths": [
-          "."
+          "src"
         ],
         "extensions": [
           ".js",

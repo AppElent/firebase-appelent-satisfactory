@@ -1,20 +1,23 @@
 import { Navigate } from 'react-router-dom';
-import DashboardLayout from './components/DashboardLayout';
-import MainLayout from './components/MainLayout';
-import Account from './pages/Account';
-import CustomerList from './pages/CustomerList';
-import Dashboard from './pages/Dashboard';
-import Login from './pages/Login';
-import NotFound from './pages/NotFound';
-import ProductList from './pages/ProductList';
-import Register from './pages/Register';
-import Settings from './pages/Settings';
-import TestPage from './pages/TestPage';
+import SatisfactoryRecipeList from 'pages/SatisfactoryRecipeList';
+import SatisfactoryBuildableList from 'pages/SatisfactoryBuildableList';
+import DashboardLayout from 'components/DashboardLayout';
+import MainLayout from 'components/MainLayout';
+import Account from 'pages/Account';
+import CustomerList from 'pages/CustomerList';
+import Dashboard from 'pages/Dashboard';
+import Login from 'pages/Login';
+import NotFound from 'pages/NotFound';
+import ProductList from 'pages/ProductList';
+import Register from 'pages/Register';
+import SatisfactoryProductList from 'pages/SatisfactoryProductList';
+import Settings from 'pages/Settings';
+import TestPage from 'pages/TestPage';
 
 const routes = (isLoggedIn) => [
   {
     path: 'demo',
-    element: isLoggedIn ? <DashboardLayout /> : <Navigate to="/login" />,
+    element: <DashboardLayout />,
     children: [
       { path: 'account', element: <Account /> },
       { path: 'customers', element: <CustomerList /> },
@@ -36,7 +39,10 @@ const routes = (isLoggedIn) => [
     path: 'open',
     element: <DashboardLayout />,
     children: [
-      { path: 'recipes', element: <></> },
+      { path: 'home', element: <></> },
+      { path: 'recipes', element: <SatisfactoryRecipeList /> },
+      { path: 'products', element: <SatisfactoryProductList /> },
+      { path: 'buildables', element: <SatisfactoryBuildableList /> },
       { path: 'testpage', element: <TestPage /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]
@@ -48,7 +54,7 @@ const routes = (isLoggedIn) => [
       { path: 'login', element: <Login /> },
       { path: 'register', element: <Register /> },
       { path: '404', element: <NotFound /> },
-      { path: '/', element: <Navigate to="/app/dashboard" /> },
+      { path: '/', element: <Navigate to="/open/home" /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]
   }

@@ -12,6 +12,7 @@ import {
   TextField,
   Typography
 } from '@material-ui/core';
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -48,8 +49,23 @@ const Register = () => {
               policy: Yup.boolean().oneOf([true], 'This field must be checked')
             })
           }
-            onSubmit={() => {
-              navigate('/app/dashboard', { replace: true });
+            onSubmit={(values) => {
+              const auth = getAuth();
+              createUserWithEmailAndPassword(auth, values.email, values.password)
+                .then((userCredential) => {
+                  console.log(userCredential);
+                  // Signed in
+                  // const { user } = userCredential;
+                  // ...
+                  updateProfile(userCredential.user, { displayName: `${values.firstName} ${values.lastName}` });
+                })
+                .catch((error) => {
+                  console.log(error);
+                  // const errorCode = error.code;
+                  // const errorMessage = error.message;
+                  // ..
+                });
+              navigate('/', { replace: true });
             }}
           >
             {({
