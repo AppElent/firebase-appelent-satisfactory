@@ -35,17 +35,15 @@ const Register = () => {
           <Formik
             initialValues={{
               email: '',
-              firstName: '',
-              lastName: '',
+              displayName: '',
               password: '',
               policy: false
             }}
             validationSchema={
             Yup.object().shape({
               email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
-              firstName: Yup.string().max(255).required('First name is required'),
-              lastName: Yup.string().max(255).required('Last name is required'),
-              password: Yup.string().max(255).required('password is required'),
+              displayName: Yup.string().max(255).required('Displayname is required'),
+              password: Yup.string().max(255).min(6).required('Password is required'),
               policy: Yup.boolean().oneOf([true], 'This field must be checked')
             })
           }
@@ -57,7 +55,9 @@ const Register = () => {
                   // Signed in
                   // const { user } = userCredential;
                   // ...
-                  updateProfile(userCredential.user, { displayName: `${values.firstName} ${values.lastName}` });
+                  updateProfile(userCredential.user, { displayName: `${values.displayName}` });
+                }).then(() => {
+                  navigate('/', { replace: true });
                 })
                 .catch((error) => {
                   console.log(error);
@@ -65,7 +65,6 @@ const Register = () => {
                   // const errorMessage = error.message;
                   // ..
                 });
-              navigate('/', { replace: true });
             }}
           >
             {({
@@ -94,27 +93,15 @@ const Register = () => {
                   </Typography>
                 </Box>
                 <TextField
-                  error={Boolean(touched.firstName && errors.firstName)}
+                  error={Boolean(touched.displayName && errors.displayName)}
                   fullWidth
-                  helperText={touched.firstName && errors.firstName}
-                  label="First name"
+                  helperText={touched.displayName && errors.displayName}
+                  label="Displayname (public)"
                   margin="normal"
-                  name="firstName"
+                  name="displayName"
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  value={values.firstName}
-                  variant="outlined"
-                />
-                <TextField
-                  error={Boolean(touched.lastName && errors.lastName)}
-                  fullWidth
-                  helperText={touched.lastName && errors.lastName}
-                  label="Last name"
-                  margin="normal"
-                  name="lastName"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  value={values.lastName}
+                  value={values.displayName}
                   variant="outlined"
                 />
                 <TextField
@@ -164,7 +151,7 @@ const Register = () => {
                     <Link
                       color="primary"
                       component={RouterLink}
-                      to="#"
+                      to="/terms"
                       underline="always"
                       variant="h6"
                     >

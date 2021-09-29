@@ -12,7 +12,9 @@ import ProductList from 'pages/ProductList';
 import Register from 'pages/Register';
 import SatisfactoryProductList from 'pages/SatisfactoryProductList';
 import Settings from 'pages/Settings';
+import TermsAndConditions from 'pages/TermsAndConditions';
 import TestPage from 'pages/TestPage';
+import PrivacyPolicy from 'pages/PrivacyPolicy';
 
 const routes = (isLoggedIn) => [
   {
@@ -54,6 +56,8 @@ const routes = (isLoggedIn) => [
       { path: 'login', element: <Login /> },
       { path: 'register', element: <Register /> },
       { path: '404', element: <NotFound /> },
+      { path: 'terms', element: <TermsAndConditions /> },
+      { path: 'privacy', element: <PrivacyPolicy /> },
       { path: '/', element: <Navigate to="/open/home" /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]
