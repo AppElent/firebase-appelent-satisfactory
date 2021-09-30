@@ -10,7 +10,9 @@ import Login from 'pages/Login';
 import NotFound from 'pages/NotFound';
 import ProductList from 'pages/ProductList';
 import Register from 'pages/Register';
+import SatisfactoryGames from 'pages/SatisfactoryGames';
 import SatisfactoryProductList from 'pages/SatisfactoryProductList';
+import SatisfactorySettings from 'pages/SatisfactorySettings';
 import Settings from 'pages/Settings';
 import TermsAndConditions from 'pages/TermsAndConditions';
 import TestPage from 'pages/TestPage';
@@ -32,9 +34,10 @@ const routes = (isLoggedIn) => [
     path: 'app',
     element: isLoggedIn ? <DashboardLayout /> : <Navigate to="/login" />,
     children: [
-      { path: 'games', element: <></> },
+      { path: 'games', element: <SatisfactoryGames /> },
       { path: 'factories', element: <></> },
       { path: 'testpage', element: <TestPage /> },
+      { path: 'settings', element: <SatisfactorySettings /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]
   }, {

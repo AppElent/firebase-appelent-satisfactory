@@ -20,7 +20,7 @@ const Register = () => {
   return (
     <>
       <Helmet>
-        <title>Register | Material Kit</title>
+        <title>Register | FICSIT Management Console</title>
       </Helmet>
       <Box
         sx={{

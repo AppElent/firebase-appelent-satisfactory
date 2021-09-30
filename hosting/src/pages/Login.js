@@ -29,7 +29,7 @@ const Login = () => {
   return (
     <>
       <Helmet>
-        <title>Login | Material Kit</title>
+        <title>Login | FICSIT Management Console</title>
       </Helmet>
       <Box
         sx={{
@@ -56,7 +56,7 @@ const Login = () => {
                   // Signed in
                   // const { user } = userCredential;
                   console.log(userCredential);
-                  navigate('/demo/dashboard', { replace: true });
+                  navigate('/', { replace: true });
                 })
                 .catch((error) => {
                   // const errorCode = error.code;
