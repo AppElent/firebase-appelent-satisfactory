@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-// import { SnackbarProvider } from 'notistack';
+import { SnackbarProvider } from 'notistack';
 import { useRoutes } from 'react-router-dom';
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
@@ -75,9 +75,15 @@ const CustomApp = () => {
                   clearKey: clearKey(setCacheData),
                 }}
               > */}
-              {/* <SnackbarProvider maxSnack={3}> Kapot vanwege nnieuwe MUI versie, later checken */}
-              {content}
-              {/* </SnackbarProvider> */}
+              <SnackbarProvider
+                maxSnack={3}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'right',
+                }}
+              >
+                {content}
+              </SnackbarProvider>
               {/* </CacheContext.Provider> */}
             </FirebaseContext.Provider>
           </AppSettingsContext.Provider>

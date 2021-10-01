@@ -12,7 +12,7 @@ import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import { getFirestore, doc, deleteDoc } from 'firebase/firestore';
 
 const ProductCard = ({
-  game, modal, getData, ...rest
+  game, modal, ...rest
 }) => {
   const db = getFirestore();
 
@@ -111,7 +111,6 @@ const ProductCard = ({
           color="error"
           onClick={async () => {
             await deleteDoc(doc(db, 'games', game.id));
-            await getData();
           }}
           variant="contained"
         >

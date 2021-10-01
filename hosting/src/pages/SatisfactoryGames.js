@@ -1,16 +1,17 @@
-import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import {
   Box, Container, Grid
 } from '@material-ui/core';
 // import { getAuth } from 'firebase/auth';
 import {
-  getFirestore, collection, getDocs, query
+  getFirestore, collection, query
 } from 'firebase/firestore';
+import { useSnackbar } from 'notistack';
 
 import useSearch from 'hooks/useSearch';
-import { useModalWithData } from 'hooks/useModal';
-// import { useCollection } from 'hooks/useFirestore';
+// eslint-disable-next-line import/no-named-as-default
+import useModalWithData from 'hooks/useModalWithData';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 import CreateOrEditDialog from 'components/satisfactorygames/CreateOrEditDialog';
 import SatisfactoryGameToolbar from 'components/satisfactorygames/SatisfactoryGameToolbar';
@@ -20,22 +21,17 @@ const SatisfactoryGames = () => {
   // const auth = getAuth();
   const db = getFirestore();
   const modal = useModalWithData();
-  // const games = [];// useCollection(query(collection(db, 'games')));
-  const [games, setGames] = useState([]);
+  const { enqueueSnackbar } = useSnackbar();
+  const [games, gamesLoading, gamesError] = useCollectionData(query(collection(db, 'games')), { idField: 'id' });
+  console.log(games);
 
-  const getData = async () => {
-    const q = query(collection(db, 'games'));
+  if (gamesError) {
+    enqueueSnackbar(`Error getting games: ${gamesError}`, { preventDuplicate: true, variant: 'error' });
+  }
 
-    const querySnapshot = await getDocs(q);
-    const tempdata = querySnapshot.docs.map((item) => ({ id: item.id, ...item.data() }));
-    setGames(tempdata);
-  };
+  const [filteredGames, search, setSearch] = useSearch(games || [], ['name', 'description']);
 
-  useEffect(async () => {
-    getData();
-  }, []);
-
-  const [filteredGames, search, setSearch] = useSearch(games, ['name', 'description']);
+  if (gamesLoading) return (<></>);
 
   return (
     <>
@@ -64,14 +60,13 @@ const SatisfactoryGames = () => {
                   md={6}
                   xs={12}
                 >
-                  <GameCard game={game} modal={modal} getData={getData} />
+                  <GameCard game={game} modal={modal} />
                 </Grid>
               ))}
             </Grid>
           </Box>
           <CreateOrEditDialog
             modal={modal}
-            setData={getData}
           />
         </Container>
       </Box>

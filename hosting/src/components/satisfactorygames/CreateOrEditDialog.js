@@ -12,7 +12,7 @@ import {
 } from 'firebase/firestore';
 import { useFormik } from 'formik';
 
-export default function CreateOrEditDialog({ modal, getData }) {
+export default function CreateOrEditDialog({ modal }) {
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
@@ -28,7 +28,6 @@ export default function CreateOrEditDialog({ modal, getData }) {
     } else {
       await addDoc(collection(db, 'games'), formik.values);
     }
-    await getData();
     modal.hideModal();
   };
   return (
