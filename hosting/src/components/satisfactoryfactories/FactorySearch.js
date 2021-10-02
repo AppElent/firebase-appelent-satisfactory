@@ -8,8 +8,8 @@ import {
 } from '@material-ui/core';
 import { Search as SearchIcon } from 'react-feather';
 
-const ProductListToolbar = ({
-  search, setSearch, modal, ...props
+const FactorySearch = ({
+  search, setSearch, ...props
 }) => (
   <Box {...props}>
     <Box sx={{ mt: 3 }}>
@@ -31,7 +31,7 @@ const ProductListToolbar = ({
                   </InputAdornment>
                 )
               }}
-              placeholder="Search games"
+              placeholder="Search factories"
               value={search}
               variant="outlined"
             />
@@ -42,4 +42,4 @@ const ProductListToolbar = ({
   </Box>
 );
 
-export default ProductListToolbar;
+export default FactorySearch;

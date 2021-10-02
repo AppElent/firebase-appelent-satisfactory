@@ -10,6 +10,7 @@ import Login from 'pages/Login';
 import NotFound from 'pages/NotFound';
 import ProductList from 'pages/ProductList';
 import Register from 'pages/Register';
+import SatisfactoryFactories from 'pages/SatisfactoryFactories';
 import SatisfactoryGames from 'pages/SatisfactoryGames';
 import SatisfactoryProductList from 'pages/SatisfactoryProductList';
 import SatisfactorySettings from 'pages/SatisfactorySettings';
@@ -35,7 +36,7 @@ const routes = (isLoggedIn) => [
     element: isLoggedIn ? <DashboardLayout /> : <Navigate to="/login" />,
     children: [
       { path: 'games', element: <SatisfactoryGames /> },
-      { path: 'factories', element: <></> },
+      { path: 'factories', element: <SatisfactoryFactories /> },
       { path: 'testpage', element: <TestPage /> },
       { path: 'settings', element: <SatisfactorySettings /> },
       { path: '*', element: <Navigate to="/404" /> }

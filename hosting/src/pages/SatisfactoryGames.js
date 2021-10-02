@@ -7,6 +7,7 @@ import {
   getFirestore, collection, query
 } from 'firebase/firestore';
 import { useSnackbar } from 'notistack';
+import { Plus as PlusIcon } from 'react-feather';
 
 import useSearch from 'hooks/useSearch';
 // eslint-disable-next-line import/no-named-as-default
@@ -16,6 +17,7 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 import CreateOrEditDialog from 'components/satisfactorygames/CreateOrEditDialog';
 import SatisfactoryGameToolbar from 'components/satisfactorygames/SatisfactoryGameToolbar';
 import GameCard from 'components/satisfactorygames/GameCard';
+import Fab from 'components/Fab';
 
 const SatisfactoryGames = () => {
   // const auth = getAuth();
@@ -23,7 +25,6 @@ const SatisfactoryGames = () => {
   const modal = useModalWithData();
   const { enqueueSnackbar } = useSnackbar();
   const [games, gamesLoading, gamesError] = useCollectionData(query(collection(db, 'games')), { idField: 'id' });
-  console.log(games);
 
   if (gamesError) {
     enqueueSnackbar(`Error getting games: ${gamesError}`, { preventDuplicate: true, variant: 'error' });
@@ -69,6 +70,9 @@ const SatisfactoryGames = () => {
             modal={modal}
           />
         </Container>
+        <Fab color="primary" aria-label="add" onClick={modal.showModal}>
+          <PlusIcon />
+        </Fab>
       </Box>
     </>
   );

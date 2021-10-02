@@ -12,7 +12,7 @@ import {
 } from 'firebase/firestore';
 import { useFormik } from 'formik';
 
-export default function CreateOrEditDialog({ modal }) {
+export default function CreateOrEditDialog({ game, modal }) {
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
@@ -22,27 +22,30 @@ export default function CreateOrEditDialog({ modal }) {
   });
 
   const db = getFirestore();
-  const saveGame = async () => {
+  const saveFactory = async () => {
     if (modal.selected) {
-      await setDoc(doc(db, 'games', modal.selected.id), formik.values);
+      await setDoc(doc(db, `games/${game.id}/factories`, modal.selected.id), formik.values);
+      modal.hideModal();
     } else {
-      await addDoc(collection(db, 'games'), formik.values);
+      const docRef = await addDoc(collection(db, `games/${game.id}/factories`), formik.values);
+      console.log(docRef);
+      modal.setSelected(formik.values);
     }
-    modal.hideModal();
   };
+
   return (
     <div>
-      <Dialog fullWidth maxWidth="md" open={modal.modalOpen} onClose={modal.hideModal}>
-        <DialogTitle>Create new game</DialogTitle>
+      <Dialog fullWidth={!!modal.selected} maxWidth={modal.selected ? 'xl' : 'sm'} open={modal.modalOpen} onClose={modal.hideModal}>
+        <DialogTitle>Create new Factory</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Create a new game here
+            Create a new Factory here
           </DialogContentText>
           <TextField
             autoFocus
             margin="dense"
             id="name"
-            label="Name of game"
+            label="Name of factory"
             onChange={formik.handleChange}
             type="text"
             fullWidth
@@ -60,11 +63,11 @@ export default function CreateOrEditDialog({ modal }) {
             value={formik.values.description}
             variant="standard"
           />
-          )}
+          ) }
         </DialogContent>
         <DialogActions>
           <Button onClick={modal.hideModal}>Cancel</Button>
-          <Button onClick={saveGame}>Save</Button>
+          <Button onClick={saveFactory}>Save</Button>
         </DialogActions>
       </Dialog>
     </div>
