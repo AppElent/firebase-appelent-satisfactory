@@ -9,12 +9,16 @@ import {
   Typography
 } from '@material-ui/core';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
-import { getFirestore, doc, deleteDoc } from 'firebase/firestore';
+import {
+  getFirestore, doc, deleteDoc, getDocs, query, collection
+} from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
 
-const ProductCard = ({
+const GameCard = ({
   game, modal, ...rest
 }) => {
   const db = getFirestore();
+  const auth = getAuth();
 
   return (
 
@@ -99,6 +103,7 @@ const ProductCard = ({
       >
         <Button
           color="primary"
+          disabled={auth.currentUser.uid !== game.owner}
           onClick={() => {
             modal.setSelected(game);
             modal.showModal();
@@ -109,7 +114,14 @@ const ProductCard = ({
         </Button>
         <Button
           color="error"
+          disabled={auth.currentUser.uid !== game.owner}
           onClick={async () => {
+            const q = query(collection(db, `games/${game.id}/factories`));
+            const querySnapshot = await getDocs(q);
+            querySnapshot.forEach(async (docRef) => {
+              console.log(docRef, docRef.data());
+              await deleteDoc(docRef.ref);
+            });
             await deleteDoc(doc(db, 'games', game.id));
           }}
           variant="contained"
@@ -123,8 +135,8 @@ const ProductCard = ({
   );
 };
 
-ProductCard.propTypes = {
+GameCard.propTypes = {
   game: PropTypes.object.isRequired
 };
 
-export default ProductCard;
+export default GameCard;

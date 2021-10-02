@@ -21,15 +21,16 @@ export default function CreateOrEditDialog({ game, modal }) {
     }
   });
 
-  const db = getFirestore();
   const saveFactory = async () => {
+    const db = getFirestore();
     if (modal.selected) {
-      await setDoc(doc(db, `games/${game.id}/factories`, modal.selected.id), formik.values);
+      console.log(modal.selected, game, formik.values);
+      const docRef = doc(db, `games/${game.id}/factories`, modal.selected.id);
+      await setDoc(docRef, formik.values, { merge: true });
       modal.hideModal();
     } else {
       const docRef = await addDoc(collection(db, `games/${game.id}/factories`), formik.values);
-      console.log(docRef);
-      modal.setSelected(formik.values);
+      modal.setSelected({ id: docRef.id, ...formik.values });
     }
   };
 

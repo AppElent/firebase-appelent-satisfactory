@@ -2,9 +2,9 @@ import { Helmet } from 'react-helmet';
 import {
   Box, Container, Grid
 } from '@material-ui/core';
-// import { getAuth } from 'firebase/auth';
+import { getAuth } from 'firebase/auth';
 import {
-  getFirestore, collection, query
+  getFirestore, collection, query, where
 } from 'firebase/firestore';
 import { useSnackbar } from 'notistack';
 import { Plus as PlusIcon } from 'react-feather';
@@ -20,11 +20,12 @@ import GameCard from 'components/satisfactorygames/GameCard';
 import Fab from 'components/Fab';
 
 const SatisfactoryGames = () => {
-  // const auth = getAuth();
+  const auth = getAuth();
   const db = getFirestore();
   const modal = useModalWithData();
   const { enqueueSnackbar } = useSnackbar();
-  const [games, gamesLoading, gamesError] = useCollectionData(query(collection(db, 'games')), { idField: 'id' });
+  // const [games, gamesLoading, gamesError] = useCollectionData(query(collection(db, 'games'), where('owner', '==', auth.currentUser.uid)), { idField: 'id' });
+  const [games, gamesLoading, gamesError] = useCollectionData(query(collection(db, 'games'), where('players', 'array-contains', auth.currentUser.uid)), { idField: 'id' });
 
   if (gamesError) {
     enqueueSnackbar(`Error getting games: ${gamesError}`, { preventDuplicate: true, variant: 'error' });

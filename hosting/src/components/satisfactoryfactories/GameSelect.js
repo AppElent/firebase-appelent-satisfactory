@@ -10,7 +10,7 @@ import {
 import { useFormik } from 'formik';
 import { useEffect } from 'react';
 
-const ProductListToolbar = ({
+const GameSelect = ({
   selected,
   list,
   modal,
@@ -25,6 +25,8 @@ const ProductListToolbar = ({
     }
   }, [formik.values.game]);
 
+  const found = list && list.length > 0 ? !!list.find((item) => (item.id === selected)) : false;
+
   return (
     <Box {...props}>
       <Box sx={{ mt: 3 }}>
@@ -35,13 +37,13 @@ const ProductListToolbar = ({
               <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">Game</InputLabel>
                 <Select
-                  defaultValue={selected}
+                  defaultValue={found ? selected : ''}
                   fullWidth
                   label="Game"
                   name="game"
                   onChange={formik.handleChange}
                   placeholder="Search games"
-                  value={formik.values.game}
+                  value={found ? formik.values.game || '' : ''}
                   variant="outlined"
                 >
                   {list.map((game) => (<MenuItem key={game.id} value={game.id}>{game.name}</MenuItem>))}
@@ -56,4 +58,4 @@ const ProductListToolbar = ({
   );
 };
 
-export default ProductListToolbar;
+export default GameSelect;

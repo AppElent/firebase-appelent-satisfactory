@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import {
   Box, Container, Grid
 } from '@material-ui/core';
 import { query, collection, getFirestore } from 'firebase/firestore';
-import { useCollectionData } from 'react-firebase-hooks/firestore';
+import { useCollectionDataOnce, useCollectionData } from 'react-firebase-hooks/firestore';
 import { Plus as PlusIcon } from 'react-feather';
 
 import GameSelect from 'components/satisfactoryfactories/GameSelect';
@@ -18,12 +18,40 @@ import useSearch from 'hooks/useSearch';
 
 const SatisfactoryFactories = () => {
   const db = getFirestore();
-  const [games] = useCollectionData(query(collection(db, 'games')), { idField: 'id' });
-  const [defaultGame] = useLocalStorage('game');
+  const [games, gamesLoading] = useCollectionDataOnce(query(collection(db, 'games')), { idField: 'id' });
+  const [defaultGame, setDefaultGame] = useLocalStorage('defaultGame');
   const [selectedGame, setSelectedGame] = useState(defaultGame);
-  const [factories] = useCollectionData(query(collection(db, `games/${selectedGame}/factories`)), { idField: 'id' });
-  const modal = useModalWithData(factories);
+  let queryVar;
+  let queryOptionVar;
+  if (games && games.length > 0) {
+    if (!defaultGame) {
+      setDefaultGame(games[0].id);
+      setSelectedGame(games[0].id);
+    } else if (!games.find((game) => (game.id === defaultGame))) {
+      setDefaultGame(games[0].id);
+      setSelectedGame(games[0].id);
+    }
+  }
+
+  useEffect(() => {
+    if (games && games.length > 0) {
+      queryVar = query(collection(db, `games/${selectedGame}/factories`));
+      queryOptionVar = { idField: 'id' };
+    }
+  }, [selectedGame]);
+
+  const [factories] = useCollectionData(queryVar, queryOptionVar);
+  const modal = useModalWithData();
   const [filteredFactories, search, setSearch] = useSearch(factories || [], ['name', 'description']);
+
+  let gameObject;
+  if (!gamesLoading) {
+    gameObject = games.find((game) => (game.id === selectedGame)) || {};
+  }
+
+  console.log(factories, defaultGame, selectedGame);
+
+  if (gamesLoading) return (<></>);
 
   return (
     <>
@@ -53,19 +81,19 @@ const SatisfactoryFactories = () => {
                   md={6}
                   xs={12}
                 >
-                  <FactoryCard factory={factory} modal={modal} />
+                  <FactoryCard factory={factory} game={gameObject} modal={modal} />
                 </Grid>
               ))}
             </Grid>
           </Box>
           {games && (
           <CreateOrEditDialog
-            game={games.find((game) => (game.id === selectedGame))}
+            game={gameObject}
             modal={modal}
           />
           )}
         </Container>
-        <Fab color="primary" aria-label="add" onClick={modal.showModal}>
+        <Fab color="primary" aria-label="add" onClick={modal.showModal} disabled={games?.length === 0}>
           <PlusIcon />
         </Fab>
       </Box>

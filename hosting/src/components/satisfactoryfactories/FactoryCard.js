@@ -11,8 +11,8 @@ import {
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import { getFirestore, doc, deleteDoc } from 'firebase/firestore';
 
-const ProductCard = ({
-  factory, modal, ...rest
+const FactoryCard = ({
+  factory, game, modal, ...rest
 }) => {
   const db = getFirestore();
 
@@ -110,7 +110,7 @@ const ProductCard = ({
         <Button
           color="error"
           onClick={async () => {
-            await deleteDoc(doc(db, 'games', factory.id));
+            await deleteDoc(doc(db, `games/${game.id}/factories`, factory.id));
           }}
           variant="contained"
         >
@@ -123,8 +123,8 @@ const ProductCard = ({
   );
 };
 
-ProductCard.propTypes = {
+FactoryCard.propTypes = {
   factory: PropTypes.object.isRequired
 };
 
-export default ProductCard;
+export default FactoryCard;

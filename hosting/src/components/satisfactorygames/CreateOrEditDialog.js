@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -6,7 +5,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-
+import { getAuth } from 'firebase/auth';
 import {
   addDoc, collection, setDoc, doc, getFirestore
 } from 'firebase/firestore';
@@ -23,13 +22,21 @@ export default function CreateOrEditDialog({ modal }) {
 
   const db = getFirestore();
   const saveGame = async () => {
+    const auth = getAuth();
+    const saveObject = {
+      owner: auth.currentUser.uid,
+      players: [auth.currentUser.uid],
+      ...formik.values
+    };
     if (modal.selected) {
-      await setDoc(doc(db, 'games', modal.selected.id), formik.values);
+      await setDoc(doc(db, 'games', modal.selected.id), saveObject);
+      modal.hideModal();
     } else {
-      await addDoc(collection(db, 'games'), formik.values);
+      const docRef = await addDoc(collection(db, 'games'), saveObject);
+      modal.setSelected({ id: docRef.id, ...saveObject });
     }
-    modal.hideModal();
   };
+
   return (
     <div>
       <Dialog fullWidth maxWidth="md" open={modal.modalOpen} onClose={modal.hideModal}>
