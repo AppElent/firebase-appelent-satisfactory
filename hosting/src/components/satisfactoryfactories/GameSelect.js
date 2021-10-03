@@ -19,8 +19,6 @@ const GameSelect = ({
 }) => {
   const selectedValue = (list && list.lenght > 0 && !!list.find((item) => (item.id === selected))) ? list.find((item) => (item.id === selected)) : list[0]?.id;
 
-  console.log(selectedValue, selected);
-
   const formik = useFormik({ initialValues: { game: selectedValue }, enableReinitialize: true });
 
   useEffect(() => {
@@ -28,8 +26,6 @@ const GameSelect = ({
       setSelectedGame(formik.values.game);
     }
   }, [formik.values.game]);
-
-  const found = list && list.length > 0 ? !!list.find((item) => (item.id === selected)) : false;
 
   return (
     <Box {...props}>
@@ -47,7 +43,7 @@ const GameSelect = ({
                   name="game"
                   onChange={formik.handleChange}
                   placeholder="Search games"
-                  value={found ? formik.values.game || '' : ''}
+                  value={formik.values.game || ''}
                   variant="outlined"
                 >
                   {list.map((game) => (<MenuItem key={game.id} value={game.id}>{game.name}</MenuItem>))}

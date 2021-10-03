@@ -67,7 +67,9 @@ const SatisfactoryFactories = () => {
   const modal = useModalWithData();
   const [filteredFactories, search, setSearch] = useSearch(factories || [], ['name', 'description']);
 
-  if (gamesLoading || !selectedGame) return (<></>);
+  if (gamesLoading) return (<></>);
+
+  if (!selectedGame) return <>Create game first</>;
 
   const gameObject = games.find((game) => (game.id === selectedGame)) || {};
 

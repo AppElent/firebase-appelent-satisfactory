@@ -120,7 +120,6 @@ const GameCard = ({
             const q = query(collection(db, `games/${game.id}/factories`));
             const querySnapshot = await getDocs(q);
             querySnapshot.forEach(async (docRef) => {
-              console.log(docRef, docRef.data());
               await deleteDoc(docRef.ref);
             });
             await deleteDoc(doc(db, 'games', game.id));

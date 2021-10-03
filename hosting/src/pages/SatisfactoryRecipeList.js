@@ -17,8 +17,6 @@ const SatisfactoryRecipeList = () => {
 
   const paginatedAndFiltered = filteredProducts.slice(pagination.startIndex, pagination.endIndex + 1);
 
-  console.log(pagination, paginatedAndFiltered);
-
   return (
     <>
       <Helmet>
