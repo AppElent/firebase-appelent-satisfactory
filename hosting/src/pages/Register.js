@@ -2,6 +2,7 @@ import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
+import { useSnackbar } from 'notistack';
 import {
   Box,
   Button,
@@ -16,6 +17,20 @@ import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase
 
 const Register = () => {
   const navigate = useNavigate();
+  const { enqueueSnackbar } = useSnackbar();
+
+  const getErrorMessage = (error) => {
+    console.log(error.code);
+    let messageToDisplay;
+    if (error.code === 'auth/email-already-in-use') {
+      messageToDisplay = 'Email already in use';
+    } else if (error.code === 'auth/wrong-password') {
+      messageToDisplay = 'Wrong password';
+    } else {
+      messageToDisplay = error.message;
+    }
+    enqueueSnackbar(messageToDisplay, { variant: 'error' });
+  };
 
   return (
     <>
@@ -47,7 +62,7 @@ const Register = () => {
               policy: Yup.boolean().oneOf([true], 'This field must be checked')
             })
           }
-            onSubmit={(values) => {
+            onSubmit={(values, { setSubmitting }) => {
               const auth = getAuth();
               createUserWithEmailAndPassword(auth, values.email, values.password)
                 .then((userCredential) => {
@@ -61,6 +76,8 @@ const Register = () => {
                 })
                 .catch((error) => {
                   console.log(error);
+                  getErrorMessage(error);
+                  setSubmitting(false);
                   // const errorCode = error.code;
                   // const errorMessage = error.message;
                   // ..
