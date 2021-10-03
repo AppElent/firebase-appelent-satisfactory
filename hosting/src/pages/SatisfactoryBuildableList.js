@@ -1,21 +1,28 @@
 import { Helmet } from 'react-helmet';
 import {
   Box,
-  Card,
   Container,
+  Grid,
+  Pagination
 } from '@material-ui/core';
-// import { useQuery } from 'react-query';
-import { DataGrid } from '@mui/x-data-grid';
-import PerfectScrollbar from 'react-perfect-scrollbar';
-import products from 'data/buildables.json';
+import buildables from 'data/buildables.json';
+import Search from 'components/Search';
+import useSearch from 'hooks/useSearch';
+import usePagination from 'hooks/usePagination';
+import BuildableCard from 'components/satisfactorybuildables/BuildableCard';
 
 const ProductList = () => {
-  const columns = [{ field: 'id', headerName: 'ID' }, { field: 'displayname', headerName: 'Name', flex: 0.1 }, { field: 'description', headerName: 'Description', flex: 0.7 }];
+  const [filteredProducts, search, setSearch] = useSearch(buildables || [], ['displayname', 'description']);
+  const pagination = usePagination({ totalItems: filteredProducts.length, initialPageSize: 6 });
+
+  const paginatedAndFiltered = filteredProducts.slice(pagination.startIndex, pagination.endIndex + 1);
+
+  console.log(pagination, paginatedAndFiltered);
 
   return (
     <>
       <Helmet>
-        <title>Satisfactory Product List</title>
+        <title>Satisfactory Buildable List</title>
       </Helmet>
 
       <Box
@@ -26,21 +33,39 @@ const ProductList = () => {
         }}
       >
         <Container maxWidth={false}>
-          <Card>
-            <PerfectScrollbar>
-              <Box sx={{ pt: 3 }}>
-                <div style={{ height: 800, width: '100%' }}>
-                  <DataGrid
-                    rows={products}
-                    columns={columns}
-                    pageSize={50}
-                    rowsPerPageOptions={[50]}
-                    disableSelectionOnClick
-                  />
-                </div>
-              </Box>
-            </PerfectScrollbar>
-          </Card>
+          <Search placeholder="Search buildables" search={search} setSearch={setSearch} />
+          <Box sx={{ pt: 3 }}>
+            <Grid
+              container
+              spacing={3}
+            >
+              {paginatedAndFiltered && paginatedAndFiltered.map((buildable) => (
+                <Grid
+                  item
+                  key={buildable.id}
+                  lg={4}
+                  md={6}
+                  xs={12}
+                >
+                  <BuildableCard key={buildable.id} buildable={buildable} />
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              pt: 3
+            }}
+          >
+            <Pagination
+              color="primary"
+              count={pagination.totalPages}
+              onChange={(event, value) => { pagination.setPage(value - 1); }}
+              size="small"
+            />
+          </Box>
         </Container>
       </Box>
 
