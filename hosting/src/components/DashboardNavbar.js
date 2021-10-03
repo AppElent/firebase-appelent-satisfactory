@@ -7,7 +7,8 @@ import {
   Box,
   Hidden,
   IconButton,
-  Toolbar
+  Toolbar,
+  Typography
 } from '@material-ui/core';
 import { getAuth, signOut } from 'firebase/auth';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -27,9 +28,19 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
       <Toolbar>
         <RouterLink to="/">
           <Logo />
+
         </RouterLink>
+        <Hidden lgDown>
+          <Typography
+            color="white"
+            gutterBottom
+            variant="h2"
+          >
+            FICSIT! Management Console
+          </Typography>
+        </Hidden>
         <Box sx={{ flexGrow: 1 }} />
-        <Hidden xlDown>
+        <Hidden lgDown>
           <IconButton color="inherit" size="large">
             <Badge
               badgeContent={notifications.length}

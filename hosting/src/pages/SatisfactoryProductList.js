@@ -1,39 +1,21 @@
 import { Helmet } from 'react-helmet';
 import {
   Box,
-  Card,
   Container,
+  Grid,
+  Pagination
 } from '@material-ui/core';
-// import { useQuery } from 'react-query';
-import { DataGrid } from '@mui/x-data-grid';
-import PerfectScrollbar from 'react-perfect-scrollbar';
 import products from 'data/products.json';
+import useSearch from 'hooks/useSearch';
+import usePagination from 'hooks/usePagination';
+import Search from 'components/Search';
+import ProductCard from 'components/satisfactoryproducts/ProductCard';
 
 const ProductList = () => {
-  // const getProducts = async () => {
-  //   const test = true;
-  //   return fetch('http://localhost:8000/satisfactory/products', {
-  //     method: 'GET',
-  //     headers: {
-  //       Accept: 'application/json',
-  //       'Content-Type': 'application/json',
-  //     },
-  //   }).then(async (response) => {
-  //     if (!response.ok) {
-  //       throw await response.json();
-  //     }
-  //     return response;
-  //   })
-  //     .then((response) => response
-  //       .clone()
-  //       .json()
-  //       .catch(() => response.text()),);
-  // };
-  // const products = useQuery('products', getProducts);
+  const [filteredProducts, search, setSearch] = useSearch(products || [], ['displayname', 'description']);
+  const pagination = usePagination({ totalItems: filteredProducts.length, initialPageSize: 6 });
 
-  const columns = [{ field: 'id', headerName: 'ID' }, { field: 'displayname', headerName: 'Name', flex: 0.1 }, { field: 'description', headerName: 'Description', flex: 0.7 }];
-
-  // if (products === undefined || products.data === undefined) return (<></>);
+  const paginatedAndFiltered = filteredProducts.slice(pagination.startIndex, pagination.endIndex + 1);
 
   return (
     <>
@@ -49,28 +31,13 @@ const ProductList = () => {
         }}
       >
         <Container maxWidth={false}>
-          <Card>
-            <PerfectScrollbar>
-              <Box sx={{ pt: 3 }}>
-                <div style={{ height: 800, width: '100%' }}>
-                  <DataGrid
-                    rows={products}
-                    columns={columns}
-                    pageSize={50}
-                    rowsPerPageOptions={[50]}
-                    disableSelectionOnClick
-                  />
-                </div>
-              </Box>
-            </PerfectScrollbar>
-          </Card>
-          {/* <ProductListToolbar /> */}
-          {/* <Box sx={{ pt: 3 }}>
+          <Search placeholder="Search products" search={search} setSearch={setSearch} />
+          <Box sx={{ pt: 3 }}>
             <Grid
               container
               spacing={3}
             >
-              {products.map((product) => (
+              {paginatedAndFiltered && paginatedAndFiltered.map((product) => (
                 <Grid
                   item
                   key={product.id}
@@ -78,12 +45,12 @@ const ProductList = () => {
                   md={6}
                   xs={12}
                 >
-                  <ProductCard product={product} />
+                  <ProductCard key={product.id} product={product} />
                 </Grid>
               ))}
             </Grid>
-          </Box> */}
-          {/* <Box
+          </Box>
+          <Box
             sx={{
               display: 'flex',
               justifyContent: 'center',
@@ -92,10 +59,11 @@ const ProductList = () => {
           >
             <Pagination
               color="primary"
-              count={3}
+              count={pagination.totalPages}
+              onChange={(event, value) => { pagination.setPage(value - 1); }}
               size="small"
             />
-          </Box> */}
+          </Box>
         </Container>
       </Box>
 

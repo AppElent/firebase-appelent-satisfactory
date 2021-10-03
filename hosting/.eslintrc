@@ -8,16 +8,20 @@
     "airbnb"
   ],
   "ignorePatterns": "**/build/*",
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
   "settings": {
     "import/resolver": {
       "node": {
         "paths": [
-          "src"
+          "src/"
         ],
         "extensions": [
           ".js",
           ".jsx"
-        ]
+        ],
+        "moduleDirectory": ["node_modules", "src/"]
       }
     }
   },
@@ -32,6 +36,7 @@
     "react/forbid-prop-types": "off",
     "react/jsx-filename-extension": "off",
     "react/jsx-props-no-spreading": "off",
+    "react/no-unescaped-entities": 0,
     "react/react-in-jsx-scope": "off",
     "react/require-default-props": "off",
     "react/prop-types" : "off"

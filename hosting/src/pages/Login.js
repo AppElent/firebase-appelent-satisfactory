@@ -14,6 +14,7 @@ import {
   TextField,
   Typography
 } from '@material-ui/core';
+import { useSnackbar } from 'notistack';
 import FacebookIcon from '../icons/Facebook';
 import GoogleIcon from '../icons/Google';
 
@@ -25,11 +26,25 @@ const Login = () => {
   const navigate = useNavigate();
   const auth = getAuth();
   auth.useDeviceLanguage();
+  const { enqueueSnackbar } = useSnackbar();
+
+  const getErrorMessage = (error) => {
+    console.log(error.code);
+    let messageToDisplay;
+    if (error.code === 'auth/user-not-found') {
+      messageToDisplay = 'User cannot be found';
+    } else if (error.code === 'auth/wrong-password') {
+      messageToDisplay = 'Wrong password';
+    } else {
+      messageToDisplay = error.message;
+    }
+    enqueueSnackbar(messageToDisplay, { variant: 'error' });
+  };
 
   return (
     <>
       <Helmet>
-        <title>Login | Material Kit</title>
+        <title>Login | FICSIT Management Console</title>
       </Helmet>
       <Box
         sx={{
@@ -50,18 +65,20 @@ const Login = () => {
               email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
               password: Yup.string().max(255).required('Password is required')
             })}
-            onSubmit={(values) => {
+            onSubmit={(values, { setSubmitting }) => {
               signInWithEmailAndPassword(auth, values.email, values.password)
                 .then((userCredential) => {
                   // Signed in
                   // const { user } = userCredential;
                   console.log(userCredential);
-                  navigate('/demo/dashboard', { replace: true });
+                  navigate('/', { replace: true });
                 })
                 .catch((error) => {
                   // const errorCode = error.code;
                   // const errorMessage = error.message;
-                  console.log(error);
+                  console.log(error, error.code);
+                  getErrorMessage(error);
+                  setSubmitting(false);
                 });
             }}
           >
@@ -118,6 +135,7 @@ const Login = () => {
                           })
                           .catch((error) => {
                             console.log(error);
+                            getErrorMessage(error);
                             // Handle Errors here.
                             // const errorCode = error.code;
                             // const errorMessage = error.message;
@@ -156,6 +174,7 @@ const Login = () => {
                             // ...
                           }).catch((error) => {
                             console.log(error);
+                            getErrorMessage(error);
                             // Handle Errors here.
                             // const errorCode = error.code;
                             // const errorMessage = error.message;

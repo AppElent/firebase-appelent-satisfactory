@@ -10,9 +10,14 @@ import Login from 'pages/Login';
 import NotFound from 'pages/NotFound';
 import ProductList from 'pages/ProductList';
 import Register from 'pages/Register';
+import SatisfactoryFactories from 'pages/SatisfactoryFactories';
+import SatisfactoryGames from 'pages/SatisfactoryGames';
 import SatisfactoryProductList from 'pages/SatisfactoryProductList';
+import SatisfactorySettings from 'pages/SatisfactorySettings';
 import Settings from 'pages/Settings';
+import TermsAndConditions from 'pages/TermsAndConditions';
 import TestPage from 'pages/TestPage';
+import PrivacyPolicy from 'pages/PrivacyPolicy';
 
 const routes = (isLoggedIn) => [
   {
@@ -30,9 +35,10 @@ const routes = (isLoggedIn) => [
     path: 'app',
     element: isLoggedIn ? <DashboardLayout /> : <Navigate to="/login" />,
     children: [
-      { path: 'games', element: <></> },
-      { path: 'factories', element: <></> },
+      { path: 'games', element: <SatisfactoryGames /> },
+      { path: 'factories', element: <SatisfactoryFactories /> },
       { path: 'testpage', element: <TestPage /> },
+      { path: 'settings', element: <SatisfactorySettings /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]
   }, {
@@ -54,6 +60,8 @@ const routes = (isLoggedIn) => [
       { path: 'login', element: <Login /> },
       { path: 'register', element: <Register /> },
       { path: '404', element: <NotFound /> },
+      { path: 'terms', element: <TermsAndConditions /> },
+      { path: 'privacy', element: <PrivacyPolicy /> },
       { path: '/', element: <Navigate to="/open/home" /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]

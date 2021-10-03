@@ -2,7 +2,6 @@ import {
   Lock as LockIcon,
   Settings as SettingsIcon,
   ShoppingBag as ShoppingBagIcon,
-  User as UserIcon,
 } from 'react-feather';
 
 const items = [
@@ -32,12 +31,7 @@ const items = [
     title: 'Buildables'
   },
   {
-    href: '/demo/account',
-    icon: UserIcon,
-    title: 'Account'
-  },
-  {
-    href: '/demo/settings',
+    href: '/app/settings',
     icon: SettingsIcon,
     title: 'Settings'
   }

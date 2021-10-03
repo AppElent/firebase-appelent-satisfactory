@@ -13,6 +13,19 @@ const useAuth = () => {
   });
   const auth = getAuth();
 
+  // const getErrorMessage = (error) => {
+  //   console.log(error.code);
+  //   let messageToDisplay;
+  //   if (error.code === 'auth/user-not-found') {
+  //     messageToDisplay = 'User cannot be found';
+  //   } else if (error.code === 'auth/wrong-password') {
+  //     messageToDisplay = 'User cannot be found';
+  //   } else if (error.code === 'auth/user-not-found') {
+  //     messageToDisplay = 'User cannot be found';
+  //   }
+  //   return messageToDisplay;
+  // };
+
   useEffect(() => {
     // listen for auth state changes
     const unsubscribe = onAuthStateChanged(auth, async (returnedUser) => {
