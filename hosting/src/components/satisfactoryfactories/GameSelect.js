@@ -17,7 +17,7 @@ const GameSelect = ({
   setSelectedGame,
   ...props
 }) => {
-  const formik = useFormik({ initialValues: { game: selected } });
+  const formik = useFormik({ initialValues: { game: selected }, enableReinitialize: true });
 
   useEffect(() => {
     if (formik.values.game !== '') {

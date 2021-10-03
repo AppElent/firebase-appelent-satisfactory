@@ -3,7 +3,10 @@ import { Helmet } from 'react-helmet';
 import {
   Box, Container, Grid
 } from '@material-ui/core';
-import { query, collection, getFirestore } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
+import {
+  query, collection, getFirestore, where
+} from 'firebase/firestore';
 import { useCollectionDataOnce, useCollectionData } from 'react-firebase-hooks/firestore';
 import { Plus as PlusIcon } from 'react-feather';
 
@@ -13,45 +16,57 @@ import CreateOrEditDialog from 'components/satisfactoryfactories/CreateOrEditDia
 import useLocalStorage from 'hooks/useLocalStorage';
 import useModalWithData from 'hooks/useModalWithData';
 import Fab from 'components/Fab';
-import FactorySearch from 'components/satisfactoryfactories/FactorySearch';
+import Search from 'components/Search';
 import useSearch from 'hooks/useSearch';
 
 const SatisfactoryFactories = () => {
   const db = getFirestore();
-  const [games, gamesLoading] = useCollectionDataOnce(query(collection(db, 'games')), { idField: 'id' });
-  const [defaultGame, setDefaultGame] = useLocalStorage('defaultGame');
-  const [selectedGame, setSelectedGame] = useState(defaultGame);
+  const auth = getAuth();
+  const [games, gamesLoading] = useCollectionDataOnce(query(collection(db, 'games'), where('players', 'array-contains', auth.currentUser.uid)), { idField: 'id' });
+  const [defaultGame, , removeDefaultGame] = useLocalStorage('defaultGame');
+  const [selectedGame, setSelectedGame] = useState();
+  const [defaultValueChecked, setDefaultValueChecked] = useState(false);
   let queryVar;
   let queryOptionVar;
-  if (games && games.length > 0) {
-    if (!defaultGame) {
-      setDefaultGame(games[0].id);
-      setSelectedGame(games[0].id);
-    } else if (!games.find((game) => (game.id === defaultGame))) {
-      setDefaultGame(games[0].id);
-      setSelectedGame(games[0].id);
-    }
-  }
+  // if (games && games.length > 0) {
+  //   if (!defaultGame) {
+  //     setDefaultGame(games[0].id);
+  //     setSelectedGame(games[0].id);
+  //   } else if (!games.find((game) => (game.id === defaultGame))) {
+  //     setDefaultGame(games[0].id);
+  //     setSelectedGame(games[0].id);
+  //   }
+  // }
 
   useEffect(() => {
-    if (games && games.length > 0) {
-      queryVar = query(collection(db, `games/${selectedGame}/factories`));
-      queryOptionVar = { idField: 'id' };
+    let setGameTo;
+    if (games && defaultGame && games.length > 0) {
+      // If defaultGame cannot be found in games list, delete it and ignore it. Set selectedGame to the first one
+      if (!games.find((game) => (game.id === defaultGame))) {
+        removeDefaultGame();
+        setGameTo = games[0].id;
+      } else {
+        setGameTo = defaultGame;
+      }
+    } else if (games && games.length === 0) {
+      removeDefaultGame();
     }
-  }, [selectedGame]);
+    setSelectedGame(setGameTo);
+    setDefaultValueChecked(true);
+  }, [games, defaultGame]);
+
+  if (defaultValueChecked) {
+    queryVar = query(collection(db, `games/${selectedGame}/factories`));
+    queryOptionVar = { idField: 'id' };
+  }
 
   const [factories] = useCollectionData(queryVar, queryOptionVar);
   const modal = useModalWithData();
   const [filteredFactories, search, setSearch] = useSearch(factories || [], ['name', 'description']);
 
-  let gameObject;
-  if (!gamesLoading) {
-    gameObject = games.find((game) => (game.id === selectedGame)) || {};
-  }
-
-  console.log(factories, defaultGame, selectedGame);
-
   if (gamesLoading) return (<></>);
+
+  const gameObject = games.find((game) => (game.id === selectedGame)) || {};
 
   return (
     <>
@@ -67,7 +82,7 @@ const SatisfactoryFactories = () => {
       >
         <Container maxWidth="lg">
           <GameSelect selected={selectedGame} list={games} modal={modal} setSelectedGame={setSelectedGame} />
-          <FactorySearch search={search} setSearch={setSearch} />
+          <Search placeholder="Search factories" search={search} setSearch={setSearch} />
           <Box sx={{ pt: 3 }}>
             <Grid
               container

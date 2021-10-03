@@ -13,6 +13,7 @@ import {
   getFirestore, doc, deleteDoc, getDocs, query, collection
 } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
+import moment from 'moment';
 
 const GameCard = ({
   game, modal, ...rest
@@ -69,7 +70,7 @@ const GameCard = ({
               sx={{ pl: 1 }}
               variant="body2"
             >
-              {game.lastModified?.toString() || ''}
+              {game.lastModified ? moment(game.lastModified.toDate()).format('MMM Do YY') : ''}
             </Typography>
           </Grid>
           <Grid
@@ -86,9 +87,9 @@ const GameCard = ({
               sx={{ pl: 1 }}
               variant="body2"
             >
-              {game.numberOfPlayers}
+              {game.players?.length}
               {' '}
-              Players
+              Player(s)
             </Typography>
           </Grid>
         </Grid>
@@ -103,7 +104,7 @@ const GameCard = ({
       >
         <Button
           color="primary"
-          disabled={auth.currentUser.uid !== game.owner}
+          disabled={!game.players.includes(auth.currentUser.uid)}
           onClick={() => {
             modal.setSelected(game);
             modal.showModal();

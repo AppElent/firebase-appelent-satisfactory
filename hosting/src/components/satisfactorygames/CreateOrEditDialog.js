@@ -26,10 +26,11 @@ export default function CreateOrEditDialog({ modal }) {
     const saveObject = {
       owner: auth.currentUser.uid,
       players: [auth.currentUser.uid],
+      lastModified: new Date(),
       ...formik.values
     };
     if (modal.selected) {
-      await setDoc(doc(db, 'games', modal.selected.id), saveObject);
+      await setDoc(doc(db, 'games', modal.selected.id), saveObject, { merge: true });
       modal.hideModal();
     } else {
       const docRef = await addDoc(collection(db, 'games'), saveObject);
@@ -39,7 +40,7 @@ export default function CreateOrEditDialog({ modal }) {
 
   return (
     <div>
-      <Dialog fullWidth maxWidth="md" open={modal.modalOpen} onClose={modal.hideModal}>
+      <Dialog fullWidth maxWidth="sm" open={modal.modalOpen} onClose={modal.hideModal}>
         <DialogTitle>Create new game</DialogTitle>
         <DialogContent>
           <DialogContentText>

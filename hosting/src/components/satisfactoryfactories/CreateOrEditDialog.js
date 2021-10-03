@@ -36,7 +36,7 @@ export default function CreateOrEditDialog({ game, modal }) {
 
   return (
     <div>
-      <Dialog fullWidth={!!modal.selected} maxWidth={modal.selected ? 'xl' : 'sm'} open={modal.modalOpen} onClose={modal.hideModal}>
+      <Dialog fullWidth maxWidth={modal.selected ? 'xl' : 'sm'} open={modal.modalOpen} onClose={modal.hideModal}>
         <DialogTitle>Create new Factory</DialogTitle>
         <DialogContent>
           <DialogContentText>

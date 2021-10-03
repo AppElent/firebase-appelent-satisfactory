@@ -8,8 +8,8 @@ import {
 } from '@material-ui/core';
 import { Search as SearchIcon } from 'react-feather';
 
-const FactorySearch = ({
-  search, setSearch, ...props
+const Search = ({
+  search, setSearch, placeholder, ...props
 }) => (
   <Box {...props}>
     <Box sx={{ mt: 3 }}>
@@ -31,7 +31,7 @@ const FactorySearch = ({
                   </InputAdornment>
                 )
               }}
-              placeholder="Search factories"
+              placeholder={placeholder}
               value={search}
               variant="outlined"
             />
@@ -42,4 +42,4 @@ const FactorySearch = ({
   </Box>
 );
 
-export default FactorySearch;
+export default Search;

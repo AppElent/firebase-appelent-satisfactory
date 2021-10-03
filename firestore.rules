@@ -13,8 +13,13 @@ service cloud.firestore {
         // Allow everyone to create new games
         allow create: if request.auth != null;
         
+        function gameData() {
+            return get(/databases/$(database)/documents/games/$(gameId)).data
+        }
+        
          match /factories/{factory} {
-          allow read, write: if request.auth.uid in resource.data.players;
+          allow read, write, create: if request.auth.uid in gameData().players;
+          //allow read, write: if true;
         }
       }
     }
