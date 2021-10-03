@@ -50,6 +50,9 @@ const SatisfactoryFactories = () => {
       }
     } else if (games && games.length === 0) {
       removeDefaultGame();
+    } else if (games && games.length > 0) {
+      // if not default game is set, but there are games, then set to first game
+      setGameTo = games[0].id;
     }
     setSelectedGame(setGameTo);
     setDefaultValueChecked(true);
@@ -64,7 +67,7 @@ const SatisfactoryFactories = () => {
   const modal = useModalWithData();
   const [filteredFactories, search, setSearch] = useSearch(factories || [], ['name', 'description']);
 
-  if (gamesLoading) return (<></>);
+  if (gamesLoading || !selectedGame) return (<></>);
 
   const gameObject = games.find((game) => (game.id === selectedGame)) || {};
 

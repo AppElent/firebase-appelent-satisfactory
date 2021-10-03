@@ -17,7 +17,11 @@ const GameSelect = ({
   setSelectedGame,
   ...props
 }) => {
-  const formik = useFormik({ initialValues: { game: selected }, enableReinitialize: true });
+  const selectedValue = (list && list.lenght > 0 && !!list.find((item) => (item.id === selected))) ? list.find((item) => (item.id === selected)) : list[0]?.id;
+
+  console.log(selectedValue, selected);
+
+  const formik = useFormik({ initialValues: { game: selectedValue }, enableReinitialize: true });
 
   useEffect(() => {
     if (formik.values.game !== '') {
@@ -37,7 +41,7 @@ const GameSelect = ({
               <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">Game</InputLabel>
                 <Select
-                  defaultValue={found ? selected : ''}
+                  // defaultValue={found ? selected : ''}
                   fullWidth
                   label="Game"
                   name="game"
