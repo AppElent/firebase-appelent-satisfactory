@@ -13,6 +13,7 @@ import Register from 'pages/Register';
 import SatisfactoryFactories from 'pages/SatisfactoryFactories';
 import SatisfactoryGames from 'pages/SatisfactoryGames';
 import SatisfactoryProductList from 'pages/SatisfactoryProductList';
+import SatisfactoryRecipe from 'pages/SatisfactoryRecipe';
 import SatisfactorySettings from 'pages/SatisfactorySettings';
 import Settings from 'pages/Settings';
 import TermsAndConditions from 'pages/TermsAndConditions';
@@ -47,6 +48,7 @@ const routes = (isLoggedIn) => [
     children: [
       { path: 'home', element: <></> },
       { path: 'recipes', element: <SatisfactoryRecipeList /> },
+      { path: 'recipes/:id', element: <SatisfactoryRecipe /> },
       { path: 'products', element: <SatisfactoryProductList /> },
       { path: 'buildables', element: <SatisfactoryBuildableList /> },
       { path: 'testpage', element: <TestPage /> },

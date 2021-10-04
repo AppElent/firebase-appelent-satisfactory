@@ -6,7 +6,7 @@ const useModalWithData = (
   initialMode = false,
   initialSelected = null
 ) => {
-  const [modalOpen, setModalOpen] = useModal(initialMode);
+  const { modalOpen, setModalOpen } = useModal(initialMode);
   const [selected, setSelected] = useState(initialSelected);
   const setModalState = (state) => {
     setModalOpen(state);

@@ -1,19 +1,19 @@
 [
   {
-    "id": 312,
+    "id": 382,
     "ingredients": [
       {
-        "product_id": 906,
+        "product_id": 1046,
         "product_name": "Reinforced Iron Plate",
         "amount": 8
       },
       {
-        "product_id": 908,
+        "product_id": 1048,
         "product_name": "Rotor",
         "amount": 4
       },
       {
-        "product_id": 827,
+        "product_id": 967,
         "product_name": "Cable",
         "amount": 10
       }
@@ -34,24 +34,24 @@
     "size_width": 10,
     "size_length": 15,
     "size_height": 10,
-    "created_at": "2021-09-27T20:07:19.382787Z",
-    "updated_at": "2021-09-27T20:07:19.382787Z"
+    "created_at": "2021-10-04T11:15:10.664187Z",
+    "updated_at": "2021-10-04T11:15:10.664187Z"
   },
   {
-    "id": 313,
+    "id": 383,
     "ingredients": [
       {
-        "product_id": 911,
+        "product_id": 1051,
         "product_name": "Screw",
         "amount": 200
       },
       {
-        "product_id": 864,
+        "product_id": 1004,
         "product_name": "Iron Plate",
         "amount": 10
       },
       {
-        "product_id": 827,
+        "product_id": 967,
         "product_name": "Cable",
         "amount": 30
       }
@@ -72,24 +72,24 @@
     "size_width": 4,
     "size_length": 6,
     "size_height": 5,
-    "created_at": "2021-09-27T20:07:19.404789Z",
-    "updated_at": "2021-09-27T20:07:19.404789Z"
+    "created_at": "2021-10-04T11:15:10.684421Z",
+    "updated_at": "2021-10-04T11:15:10.684421Z"
   },
   {
-    "id": 314,
+    "id": 384,
     "ingredients": [
       {
-        "product_id": 906,
+        "product_id": 1046,
         "product_name": "Reinforced Iron Plate",
         "amount": 15
       },
       {
-        "product_id": 827,
+        "product_id": 967,
         "product_name": "Cable",
         "amount": 30
       },
       {
-        "product_id": 835,
+        "product_id": 975,
         "product_name": "Concrete",
         "amount": 45
       }
@@ -110,24 +110,24 @@
     "size_width": 16,
     "size_length": 13,
     "size_height": 24,
-    "created_at": "2021-09-27T20:07:19.426789Z",
-    "updated_at": "2021-09-27T20:07:19.426789Z"
+    "created_at": "2021-10-04T11:15:10.704946Z",
+    "updated_at": "2021-10-04T11:15:10.704946Z"
   },
   {
-    "id": 315,
+    "id": 385,
     "ingredients": [
       {
-        "product_id": 864,
+        "product_id": 1004,
         "product_name": "Iron Plate",
         "amount": 15
       },
       {
-        "product_id": 865,
+        "product_id": 1005,
         "product_name": "Iron Rod",
         "amount": 15
       },
       {
-        "product_id": 932,
+        "product_id": 1072,
         "product_name": "Wire",
         "amount": 25
       }
@@ -148,29 +148,29 @@
     "size_width": 8,
     "size_length": 8,
     "size_height": 7,
-    "created_at": "2021-09-27T20:07:19.445289Z",
-    "updated_at": "2021-09-27T20:07:19.445289Z"
+    "created_at": "2021-10-04T11:15:10.722951Z",
+    "updated_at": "2021-10-04T11:15:10.723450Z"
   },
   {
-    "id": 316,
+    "id": 386,
     "ingredients": [
       {
-        "product_id": 874,
+        "product_id": 1014,
         "product_name": "Motor",
         "amount": 20
       },
       {
-        "product_id": 858,
+        "product_id": 998,
         "product_name": "Heavy Modular Frame",
         "amount": 10
       },
       {
-        "product_id": 814,
+        "product_id": 954,
         "product_name": "Aluminum Casing",
         "amount": 50
       },
       {
-        "product_id": 903,
+        "product_id": 1043,
         "product_name": "Radio Control Unit",
         "amount": 5
       }
@@ -191,24 +191,24 @@
     "size_width": 18,
     "size_length": 16,
     "size_height": 15,
-    "created_at": "2021-09-27T20:07:19.464788Z",
-    "updated_at": "2021-09-27T20:07:19.464788Z"
+    "created_at": "2021-10-04T11:15:10.742967Z",
+    "updated_at": "2021-10-04T11:15:10.742967Z"
   },
   {
-    "id": 317,
+    "id": 387,
     "ingredients": [
       {
-        "product_id": 906,
+        "product_id": 1046,
         "product_name": "Reinforced Iron Plate",
         "amount": 20
       },
       {
-        "product_id": 908,
+        "product_id": 1048,
         "product_name": "Rotor",
         "amount": 10
       },
       {
-        "product_id": 827,
+        "product_id": 967,
         "product_name": "Cable",
         "amount": 30
       }
@@ -229,19 +229,19 @@
     "size_width": 10,
     "size_length": 26,
     "size_height": 36,
-    "created_at": "2021-09-27T20:07:19.488791Z",
-    "updated_at": "2021-09-27T20:07:19.488791Z"
+    "created_at": "2021-10-04T11:15:10.768261Z",
+    "updated_at": "2021-10-04T11:15:10.768261Z"
   },
   {
-    "id": 318,
+    "id": 388,
     "ingredients": [
       {
-        "product_id": 906,
+        "product_id": 1046,
         "product_name": "Reinforced Iron Plate",
         "amount": 2
       },
       {
-        "product_id": 827,
+        "product_id": 967,
         "product_name": "Cable",
         "amount": 8
       }
@@ -262,14 +262,14 @@
     "size_width": 8,
     "size_length": 10,
     "size_height": 8,
-    "created_at": "2021-09-27T20:07:19.509796Z",
-    "updated_at": "2021-09-27T20:07:19.509796Z"
+    "created_at": "2021-10-04T11:15:10.791249Z",
+    "updated_at": "2021-10-04T11:15:10.791249Z"
   },
   {
-    "id": 319,
+    "id": 389,
     "ingredients": [
       {
-        "product_id": 864,
+        "product_id": 1004,
         "product_name": "Iron Plate",
         "amount": 1
       }
@@ -290,14 +290,14 @@
     "size_width": 2,
     "size_length": null,
     "size_height": 1,
-    "created_at": "2021-09-27T20:07:19.527290Z",
-    "updated_at": "2021-09-27T20:07:19.527290Z"
+    "created_at": "2021-10-04T11:15:10.808238Z",
+    "updated_at": "2021-10-04T11:15:10.808238Z"
   },
   {
-    "id": 320,
+    "id": 390,
     "ingredients": [
       {
-        "product_id": 864,
+        "product_id": 1004,
         "product_name": "Iron Plate",
         "amount": 2
       }
@@ -318,19 +318,19 @@
     "size_width": 2,
     "size_length": 2,
     "size_height": null,
-    "created_at": "2021-09-27T20:07:19.537790Z",
-    "updated_at": "2021-09-27T20:07:19.538288Z"
+    "created_at": "2021-10-04T11:15:10.818050Z",
+    "updated_at": "2021-10-04T11:15:10.818050Z"
   },
   {
-    "id": 321,
+    "id": 391,
     "ingredients": [
       {
-        "product_id": 864,
+        "product_id": 1004,
         "product_name": "Iron Plate",
         "amount": 2
       },
       {
-        "product_id": 865,
+        "product_id": 1005,
         "product_name": "Iron Rod",
         "amount": 2
       }
@@ -351,24 +351,24 @@
     "size_width": 4,
     "size_length": 4,
     "size_height": null,
-    "created_at": "2021-09-27T20:07:19.548790Z",
-    "updated_at": "2021-09-27T20:07:19.548790Z"
+    "created_at": "2021-10-04T11:15:10.828051Z",
+    "updated_at": "2021-10-04T11:15:10.828051Z"
   },
   {
-    "id": 322,
+    "id": 392,
     "ingredients": [
       {
-        "product_id": 865,
+        "product_id": 1005,
         "product_name": "Iron Rod",
         "amount": 1
       },
       {
-        "product_id": 864,
+        "product_id": 1004,
         "product_name": "Iron Plate",
         "amount": 1
       },
       {
-        "product_id": 835,
+        "product_id": 975,
         "product_name": "Concrete",
         "amount": 1
       }
@@ -389,19 +389,19 @@
     "size_width": 2,
     "size_length": 1,
     "size_height": null,
-    "created_at": "2021-09-27T20:07:19.566290Z",
-    "updated_at": "2021-09-27T20:07:19.566290Z"
+    "created_at": "2021-10-04T11:15:10.842854Z",
+    "updated_at": "2021-10-04T11:15:10.842854Z"
   },
   {
-    "id": 323,
+    "id": 393,
     "ingredients": [
       {
-        "product_id": 864,
+        "product_id": 1004,
         "product_name": "Iron Plate",
         "amount": 2
       },
       {
-        "product_id": 827,
+        "product_id": 967,
         "product_name": "Cable",
         "amount": 2
       }
@@ -422,19 +422,19 @@
     "size_width": 4,
     "size_length": 4,
     "size_height": null,
-    "created_at": "2021-09-27T20:07:19.586789Z",
-    "updated_at": "2021-09-27T20:07:19.586789Z"
+    "created_at": "2021-10-04T11:15:10.862536Z",
+    "updated_at": "2021-10-04T11:15:10.862536Z"
   },
   {
-    "id": 324,
+    "id": 394,
     "ingredients": [
       {
-        "product_id": 864,
+        "product_id": 1004,
         "product_name": "Iron Plate",
         "amount": 3
       },
       {
-        "product_id": 865,
+        "product_id": 1005,
         "product_name": "Iron Rod",
         "amount": 3
       }
@@ -455,14 +455,14 @@
     "size_width": 6,
     "size_length": 3,
     "size_height": 3,
-    "created_at": "2021-09-27T20:07:19.602289Z",
-    "updated_at": "2021-09-27T20:07:19.602289Z"
+    "created_at": "2021-10-04T11:15:10.877537Z",
+    "updated_at": "2021-10-04T11:15:10.877537Z"
   },
   {
-    "id": 325,
+    "id": 395,
     "ingredients": [
       {
-        "product_id": 906,
+        "product_id": 1046,
         "product_name": "Reinforced Iron Plate",
         "amount": 10
       }
@@ -483,34 +483,34 @@
     "size_width": null,
     "size_length": null,
     "size_height": null,
-    "created_at": "2021-09-27T20:07:19.618289Z",
-    "updated_at": "2021-09-27T20:07:19.618289Z"
+    "created_at": "2021-10-04T11:15:10.893536Z",
+    "updated_at": "2021-10-04T11:15:10.893536Z"
   },
   {
-    "id": 326,
+    "id": 396,
     "ingredients": [
       {
-        "product_id": 874,
+        "product_id": 1014,
         "product_name": "Motor",
         "amount": 4
       },
       {
-        "product_id": 812,
+        "product_id": 952,
         "product_name": "Alclad Aluminum Sheet",
         "amount": 10
       },
       {
-        "product_id": 903,
+        "product_id": 1043,
         "product_name": "Radio Control Unit",
         "amount": 1
       },
       {
-        "product_id": 811,
+        "product_id": 951,
         "product_name": "AI Limiter",
         "amount": 2
       },
       {
-        "product_id": 937,
+        "product_id": 1077,
         "product_name": "Portable Miner",
         "amount": 1
       }
@@ -531,34 +531,34 @@
     "size_width": 16,
     "size_length": 6,
     "size_height": 3,
-    "created_at": "2021-09-27T20:07:19.627789Z",
-    "updated_at": "2021-09-27T20:07:19.627789Z"
+    "created_at": "2021-10-04T11:15:10.902535Z",
+    "updated_at": "2021-10-04T11:15:10.902535Z"
   },
   {
-    "id": 327,
+    "id": 397,
     "ingredients": [
       {
-        "product_id": 858,
+        "product_id": 998,
         "product_name": "Heavy Modular Frame",
         "amount": 20
       },
       {
-        "product_id": 859,
+        "product_id": 999,
         "product_name": "High-Speed Connector",
         "amount": 20
       },
       {
-        "product_id": 812,
+        "product_id": 952,
         "product_name": "Alclad Aluminum Sheet",
         "amount": 50
       },
       {
-        "product_id": 814,
+        "product_id": 954,
         "product_name": "Aluminum Casing",
         "amount": 50
       },
       {
-        "product_id": 903,
+        "product_id": 1043,
         "product_name": "Radio Control Unit",
         "amount": 10
       }
@@ -579,34 +579,34 @@
     "size_width": 24,
     "size_length": 24,
     "size_height": 15,
-    "created_at": "2021-09-27T20:07:19.658789Z",
-    "updated_at": "2021-09-27T20:07:19.659289Z"
+    "created_at": "2021-10-04T11:15:10.935492Z",
+    "updated_at": "2021-10-04T11:15:10.935492Z"
   },
   {
-    "id": 328,
+    "id": 398,
     "ingredients": [
       {
-        "product_id": 858,
+        "product_id": 998,
         "product_name": "Heavy Modular Frame",
         "amount": 5
       },
       {
-        "product_id": 874,
+        "product_id": 1014,
         "product_name": "Motor",
         "amount": 10
       },
       {
-        "product_id": 920,
+        "product_id": 1060,
         "product_name": "Steel Pipe",
         "amount": 15
       },
       {
-        "product_id": 834,
+        "product_id": 974,
         "product_name": "Computer",
         "amount": 5
       },
       {
-        "product_id": 822,
+        "product_id": 962,
         "product_name": "Beacon",
         "amount": 5
       }
@@ -627,19 +627,19 @@
     "size_width": 6,
     "size_length": 16,
     "size_height": 6,
-    "created_at": "2021-09-27T20:07:19.687289Z",
-    "updated_at": "2021-09-27T20:07:19.687289Z"
+    "created_at": "2021-10-04T11:15:10.961774Z",
+    "updated_at": "2021-10-04T11:15:10.961774Z"
   },
   {
-    "id": 329,
+    "id": 399,
     "ingredients": [
       {
-        "product_id": 858,
+        "product_id": 998,
         "product_name": "Heavy Modular Frame",
         "amount": 6
       },
       {
-        "product_id": 835,
+        "product_id": 975,
         "product_name": "Concrete",
         "amount": 50
       }
@@ -660,19 +660,19 @@
     "size_width": 30,
     "size_length": 16,
     "size_height": 1,
-    "created_at": "2021-09-27T20:07:19.713789Z",
-    "updated_at": "2021-09-27T20:07:19.713789Z"
+    "created_at": "2021-10-04T11:15:10.991581Z",
+    "updated_at": "2021-10-04T11:15:10.991581Z"
   },
   {
-    "id": 330,
+    "id": 400,
     "ingredients": [
       {
-        "product_id": 864,
+        "product_id": 1004,
         "product_name": "Iron Plate",
         "amount": 6
       },
       {
-        "product_id": 865,
+        "product_id": 1005,
         "product_name": "Iron Rod",
         "amount": 4
       }
@@ -693,29 +693,29 @@
     "size_width": 10,
     "size_length": 7,
     "size_height": 5,
-    "created_at": "2021-09-27T20:07:19.728792Z",
-    "updated_at": "2021-09-27T20:07:19.728792Z"
+    "created_at": "2021-10-04T11:15:11.006080Z",
+    "updated_at": "2021-10-04T11:15:11.006580Z"
   },
   {
-    "id": 331,
+    "id": 401,
     "ingredients": [
       {
-        "product_id": 842,
+        "product_id": 982,
         "product_name": "Crystal Oscillator",
         "amount": 5
       },
       {
-        "product_id": 874,
+        "product_id": 1014,
         "product_name": "Motor",
         "amount": 5
       },
       {
-        "product_id": 822,
+        "product_id": 962,
         "product_name": "Beacon",
         "amount": 15
       },
       {
-        "product_id": 858,
+        "product_id": 998,
         "product_name": "Heavy Modular Frame",
         "amount": 5
       }
@@ -736,11 +736,11 @@
     "size_width": null,
     "size_length": null,
     "size_height": null,
-    "created_at": "2021-09-27T20:07:19.744790Z",
-    "updated_at": "2021-09-27T20:07:19.744790Z"
+    "created_at": "2021-10-04T11:15:11.024083Z",
+    "updated_at": "2021-10-04T11:15:11.024083Z"
   },
   {
-    "id": 332,
+    "id": 402,
     "ingredients": [],
     "version": "u4",
     "displayname": "FICSMAS Gift",
@@ -758,19 +758,19 @@
     "size_width": null,
     "size_length": null,
     "size_height": null,
-    "created_at": "2021-09-27T20:07:19.770809Z",
-    "updated_at": "2021-09-27T20:07:19.770809Z"
+    "created_at": "2021-10-04T11:15:11.055080Z",
+    "updated_at": "2021-10-04T11:15:11.055080Z"
   },
   {
-    "id": 333,
+    "id": 403,
     "ingredients": [
       {
-        "product_id": 840,
+        "product_id": 980,
         "product_name": "Copper Sheet",
         "amount": 10
       },
       {
-        "product_id": 873,
+        "product_id": 1013,
         "product_name": "Modular Frame",
         "amount": 5
       }
@@ -791,34 +791,34 @@
     "size_width": 6,
     "size_length": 6,
     "size_height": 8,
-    "created_at": "2021-09-27T20:07:19.774792Z",
-    "updated_at": "2021-09-27T20:07:19.774792Z"
+    "created_at": "2021-10-04T11:15:11.059584Z",
+    "updated_at": "2021-10-04T11:15:11.059584Z"
   },
   {
-    "id": 334,
+    "id": 404,
     "ingredients": [
       {
-        "product_id": 858,
+        "product_id": 998,
         "product_name": "Heavy Modular Frame",
         "amount": 6
       },
       {
-        "product_id": 834,
+        "product_id": 974,
         "product_name": "Computer",
         "amount": 2
       },
       {
-        "product_id": 835,
+        "product_id": 975,
         "product_name": "Concrete",
         "amount": 50
       },
       {
-        "product_id": 827,
+        "product_id": 967,
         "product_name": "Cable",
         "amount": 25
       },
       {
-        "product_id": 874,
+        "product_id": 1014,
         "product_name": "Motor",
         "amount": 5
       }
@@ -839,24 +839,24 @@
     "size_width": 32,
     "size_length": 16,
     "size_height": 20,
-    "created_at": "2021-09-27T20:07:19.787289Z",
-    "updated_at": "2021-09-27T20:07:19.787289Z"
+    "created_at": "2021-10-04T11:15:11.073605Z",
+    "updated_at": "2021-10-04T11:15:11.073605Z"
   },
   {
-    "id": 335,
+    "id": 405,
     "ingredients": [
       {
-        "product_id": 873,
+        "product_id": 1013,
         "product_name": "Modular Frame",
         "amount": 10
       },
       {
-        "product_id": 908,
+        "product_id": 1048,
         "product_name": "Rotor",
         "amount": 10
       },
       {
-        "product_id": 835,
+        "product_id": 975,
         "product_name": "Concrete",
         "amount": 20
       }
@@ -877,19 +877,19 @@
     "size_width": 10,
     "size_length": 9,
     "size_height": 9,
-    "created_at": "2021-09-27T20:07:19.815790Z",
-    "updated_at": "2021-09-27T20:07:19.815790Z"
+    "created_at": "2021-10-04T11:15:11.102081Z",
+    "updated_at": "2021-10-04T11:15:11.102081Z"
   },
   {
-    "id": 336,
+    "id": 406,
     "ingredients": [
       {
-        "product_id": 858,
+        "product_id": 998,
         "product_name": "Heavy Modular Frame",
         "amount": 4
       },
       {
-        "product_id": 920,
+        "product_id": 1060,
         "product_name": "Steel Pipe",
         "amount": 10
       }
@@ -910,34 +910,34 @@
     "size_width": 6,
     "size_length": 16,
     "size_height": 6,
-    "created_at": "2021-09-27T20:07:19.836290Z",
-    "updated_at": "2021-09-27T20:07:19.836290Z"
+    "created_at": "2021-10-04T11:15:11.121105Z",
+    "updated_at": "2021-10-04T11:15:11.121105Z"
   },
   {
-    "id": 337,
+    "id": 407,
     "ingredients": [
       {
-        "product_id": 834,
+        "product_id": 974,
         "product_name": "Computer",
         "amount": 5
       },
       {
-        "product_id": 858,
+        "product_id": 998,
         "product_name": "Heavy Modular Frame",
         "amount": 10
       },
       {
-        "product_id": 874,
+        "product_id": 1014,
         "product_name": "Motor",
         "amount": 15
       },
       {
-        "product_id": 909,
+        "product_id": 1049,
         "product_name": "Rubber",
         "amount": 50
       },
       {
-        "product_id": 902,
+        "product_id": 1042,
         "product_name": "Quickwire",
         "amount": 50
       }
@@ -958,19 +958,19 @@
     "size_width": 20,
     "size_length": 20,
     "size_height": 27,
-    "created_at": "2021-09-27T20:07:19.853289Z",
-    "updated_at": "2021-09-27T20:07:19.853289Z"
+    "created_at": "2021-10-04T11:15:11.137605Z",
+    "updated_at": "2021-10-04T11:15:11.137605Z"
   },
   {
-    "id": 338,
+    "id": 408,
     "ingredients": [
       {
-        "product_id": 840,
+        "product_id": 980,
         "product_name": "Copper Sheet",
         "amount": 1
       },
       {
-        "product_id": 920,
+        "product_id": 1060,
         "product_name": "Steel Pipe",
         "amount": 1
       }
@@ -991,24 +991,24 @@
     "size_width": 2,
     "size_length": null,
     "size_height": 2,
-    "created_at": "2021-09-27T20:07:19.882314Z",
-    "updated_at": "2021-09-27T20:07:19.882314Z"
+    "created_at": "2021-10-04T11:15:11.168082Z",
+    "updated_at": "2021-10-04T11:15:11.168082Z"
   },
   {
-    "id": 339,
+    "id": 409,
     "ingredients": [
       {
-        "product_id": 847,
+        "product_id": 987,
         "product_name": "Encased Industrial Beam",
         "amount": 4
       },
       {
-        "product_id": 908,
+        "product_id": 1048,
         "product_name": "Rotor",
         "amount": 4
       },
       {
-        "product_id": 920,
+        "product_id": 1060,
         "product_name": "Steel Pipe",
         "amount": 10
       }
@@ -1029,19 +1029,19 @@
     "size_width": 2,
     "size_length": 1,
     "size_height": 2,
-    "created_at": "2021-09-27T20:07:19.897308Z",
-    "updated_at": "2021-09-27T20:07:19.897308Z"
+    "created_at": "2021-10-04T11:15:11.183584Z",
+    "updated_at": "2021-10-04T11:15:11.183584Z"
   },
   {
-    "id": 340,
+    "id": 410,
     "ingredients": [
       {
-        "product_id": 864,
+        "product_id": 1004,
         "product_name": "Iron Plate",
         "amount": 2
       },
       {
-        "product_id": 835,
+        "product_id": 975,
         "product_name": "Concrete",
         "amount": 2
       }
@@ -1062,11 +1062,11 @@
     "size_width": 2,
     "size_length": 1,
     "size_height": null,
-    "created_at": "2021-09-27T20:07:19.919291Z",
-    "updated_at": "2021-09-27T20:07:19.919291Z"
+    "created_at": "2021-10-04T11:15:11.202583Z",
+    "updated_at": "2021-10-04T11:15:11.202583Z"
   },
   {
-    "id": 341,
+    "id": 411,
     "ingredients": [],
     "version": "u4",
     "displayname": "Indicator Light",
@@ -1084,24 +1084,24 @@
     "size_width": null,
     "size_length": null,
     "size_height": 2,
-    "created_at": "2021-09-27T20:07:19.935304Z",
-    "updated_at": "2021-09-27T20:07:19.935792Z"
+    "created_at": "2021-10-04T11:15:11.218624Z",
+    "updated_at": "2021-10-04T11:15:11.218624Z"
   },
   {
-    "id": 342,
+    "id": 412,
     "ingredients": [
       {
-        "product_id": 908,
+        "product_id": 1048,
         "product_name": "Rotor",
         "amount": 2
       },
       {
-        "product_id": 864,
+        "product_id": 1004,
         "product_name": "Iron Plate",
         "amount": 15
       },
       {
-        "product_id": 827,
+        "product_id": 967,
         "product_name": "Cable",
         "amount": 10
       }
@@ -1122,14 +1122,14 @@
     "size_width": 6,
     "size_length": 6,
     "size_height": 6,
-    "created_at": "2021-09-27T20:07:19.939791Z",
-    "updated_at": "2021-09-27T20:07:19.939791Z"
+    "created_at": "2021-10-04T11:15:11.223114Z",
+    "updated_at": "2021-10-04T11:15:11.223114Z"
   },
   {
-    "id": 343,
+    "id": 413,
     "ingredients": [
       {
-        "product_id": 865,
+        "product_id": 1005,
         "product_name": "Iron Rod",
         "amount": 2
       }
@@ -1150,24 +1150,24 @@
     "size_width": 1,
     "size_length": 0,
     "size_height": null,
-    "created_at": "2021-09-27T20:07:19.960292Z",
-    "updated_at": "2021-09-27T20:07:19.960292Z"
+    "created_at": "2021-10-04T11:15:11.242882Z",
+    "updated_at": "2021-10-04T11:15:11.242882Z"
   },
   {
-    "id": 344,
+    "id": 414,
     "ingredients": [
       {
-        "product_id": 827,
+        "product_id": 967,
         "product_name": "Cable",
         "amount": 10
       },
       {
-        "product_id": 906,
+        "product_id": 1046,
         "product_name": "Reinforced Iron Plate",
         "amount": 5
       },
       {
-        "product_id": 901,
+        "product_id": 1041,
         "product_name": "Quartz Crystal",
         "amount": 20
       }
@@ -1188,19 +1188,19 @@
     "size_width": 1,
     "size_length": 2,
     "size_height": 3,
-    "created_at": "2021-09-27T20:07:19.972290Z",
-    "updated_at": "2021-09-27T20:07:19.972290Z"
+    "created_at": "2021-10-04T11:15:11.254383Z",
+    "updated_at": "2021-10-04T11:15:11.254383Z"
   },
   {
-    "id": 345,
+    "id": 415,
     "ingredients": [
       {
-        "product_id": 864,
+        "product_id": 1004,
         "product_name": "Iron Plate",
         "amount": 5
       },
       {
-        "product_id": 865,
+        "product_id": 1005,
         "product_name": "Iron Rod",
         "amount": 5
       }
@@ -1221,24 +1221,24 @@
     "size_width": 9,
     "size_length": 9,
     "size_height": 24,
-    "created_at": "2021-09-27T20:07:19.997289Z",
-    "updated_at": "2021-09-27T20:07:19.997791Z"
+    "created_at": "2021-10-04T11:15:11.275896Z",
+    "updated_at": "2021-10-04T11:15:11.275896Z"
   },
   {
-    "id": 346,
+    "id": 416,
     "ingredients": [
       {
-        "product_id": 906,
+        "product_id": 1046,
         "product_name": "Reinforced Iron Plate",
         "amount": 5
       },
       {
-        "product_id": 827,
+        "product_id": 967,
         "product_name": "Cable",
         "amount": 15
       },
       {
-        "product_id": 932,
+        "product_id": 1072,
         "product_name": "Wire",
         "amount": 45
       }
@@ -1259,29 +1259,29 @@
     "size_width": 5,
     "size_length": 9,
     "size_height": 6,
-    "created_at": "2021-09-27T20:07:20.010790Z",
-    "updated_at": "2021-09-27T20:07:20.010790Z"
+    "created_at": "2021-10-04T11:15:11.291563Z",
+    "updated_at": "2021-10-04T11:15:11.291563Z"
   },
   {
-    "id": 347,
+    "id": 417,
     "ingredients": [
       {
-        "product_id": 874,
+        "product_id": 1014,
         "product_name": "Motor",
         "amount": 5
       },
       {
-        "product_id": 858,
+        "product_id": 998,
         "product_name": "Heavy Modular Frame",
         "amount": 10
       },
       {
-        "product_id": 827,
+        "product_id": 967,
         "product_name": "Cable",
         "amount": 50
       },
       {
-        "product_id": 892,
+        "product_id": 1032,
         "product_name": "Plastic",
         "amount": 50
       }
@@ -1302,24 +1302,24 @@
     "size_width": 18,
     "size_length": 19,
     "size_height": 12,
-    "created_at": "2021-09-27T20:07:20.028789Z",
-    "updated_at": "2021-09-27T20:07:20.028789Z"
+    "created_at": "2021-10-04T11:15:11.311564Z",
+    "updated_at": "2021-10-04T11:15:11.311564Z"
   },
   {
-    "id": 348,
+    "id": 418,
     "ingredients": [
       {
-        "product_id": 937,
+        "product_id": 1077,
         "product_name": "Portable Miner",
         "amount": 1
       },
       {
-        "product_id": 864,
+        "product_id": 1004,
         "product_name": "Iron Plate",
         "amount": 10
       },
       {
-        "product_id": 835,
+        "product_id": 975,
         "product_name": "Concrete",
         "amount": 10
       }
@@ -1340,34 +1340,34 @@
     "size_width": 6,
     "size_length": 14,
     "size_height": 18,
-    "created_at": "2021-09-27T20:07:20.052789Z",
-    "updated_at": "2021-09-27T20:07:20.052789Z"
+    "created_at": "2021-10-04T11:15:11.338063Z",
+    "updated_at": "2021-10-04T11:15:11.338063Z"
   },
   {
-    "id": 349,
+    "id": 419,
     "ingredients": [
       {
-        "product_id": 835,
+        "product_id": 975,
         "product_name": "Concrete",
         "amount": 250
       },
       {
-        "product_id": 858,
+        "product_id": 998,
         "product_name": "Heavy Modular Frame",
         "amount": 25
       },
       {
-        "product_id": 922,
+        "product_id": 1062,
         "product_name": "Supercomputer",
         "amount": 5
       },
       {
-        "product_id": 827,
+        "product_id": 967,
         "product_name": "Cable",
         "amount": 100
       },
       {
-        "product_id": 812,
+        "product_id": 952,
         "product_name": "Alclad Aluminum Sheet",
         "amount": 100
       }
@@ -1388,24 +1388,24 @@
     "size_width": 38,
     "size_length": 43,
     "size_height": 49,
-    "created_at": "2021-09-27T20:07:20.073290Z",
-    "updated_at": "2021-09-27T20:07:20.073290Z"
+    "created_at": "2021-10-04T11:15:11.358925Z",
+    "updated_at": "2021-10-04T11:15:11.358925Z"
   },
   {
-    "id": 350,
+    "id": 420,
     "ingredients": [
       {
-        "product_id": 874,
+        "product_id": 1014,
         "product_name": "Motor",
         "amount": 15
       },
       {
-        "product_id": 847,
+        "product_id": 987,
         "product_name": "Encased Industrial Beam",
         "amount": 20
       },
       {
-        "product_id": 827,
+        "product_id": 967,
         "product_name": "Cable",
         "amount": 60
       }
@@ -1426,11 +1426,11 @@
     "size_width": 12,
     "size_length": 20,
     "size_height": 20,
-    "created_at": "2021-09-27T20:07:20.101289Z",
-    "updated_at": "2021-09-27T20:07:20.101289Z"
+    "created_at": "2021-10-04T11:15:11.389288Z",
+    "updated_at": "2021-10-04T11:15:11.389288Z"
   },
   {
-    "id": 351,
+    "id": 421,
     "ingredients": [],
     "version": "u4",
     "displayname": "Dark Matter",
@@ -1448,24 +1448,24 @@
     "size_width": null,
     "size_length": null,
     "size_height": null,
-    "created_at": "2021-09-27T20:07:20.118789Z",
-    "updated_at": "2021-09-27T20:07:20.118789Z"
+    "created_at": "2021-10-04T11:15:11.409623Z",
+    "updated_at": "2021-10-04T11:15:11.409623Z"
   },
   {
-    "id": 352,
+    "id": 422,
     "ingredients": [
       {
-        "product_id": 918,
+        "product_id": 1058,
         "product_name": "Steel Beam",
         "amount": 20
       },
       {
-        "product_id": 909,
+        "product_id": 1049,
         "product_name": "Rubber",
         "amount": 10
       },
       {
-        "product_id": 892,
+        "product_id": 1032,
         "product_name": "Plastic",
         "amount": 10
       }
@@ -1486,39 +1486,39 @@
     "size_width": 8,
     "size_length": 8,
     "size_height": 12,
-    "created_at": "2021-09-27T20:07:20.123790Z",
-    "updated_at": "2021-09-27T20:07:20.123790Z"
+    "created_at": "2021-10-04T11:15:11.414123Z",
+    "updated_at": "2021-10-04T11:15:11.414623Z"
   },
   {
-    "id": 353,
+    "id": 423,
     "ingredients": [
       {
-        "product_id": 903,
+        "product_id": 1043,
         "product_name": "Radio Control Unit",
         "amount": 25
       },
       {
-        "product_id": 844,
+        "product_id": 984,
         "product_name": "Electromagnetic Control Rod",
         "amount": 100
       },
       {
-        "product_id": 922,
+        "product_id": 1062,
         "product_name": "Supercomputer",
         "amount": 10
       },
       {
-        "product_id": 836,
+        "product_id": 976,
         "product_name": "Cooling System",
         "amount": 50
       },
       {
-        "product_id": 853,
+        "product_id": 993,
         "product_name": "Fused Modular Frame",
         "amount": 20
       },
       {
-        "product_id": 925,
+        "product_id": 1065,
         "product_name": "Turbo Motor",
         "amount": 10
       }
@@ -1539,19 +1539,19 @@
     "size_width": 24,
     "size_length": 38,
     "size_height": 32,
-    "created_at": "2021-09-27T20:07:20.142289Z",
-    "updated_at": "2021-09-27T20:07:20.142289Z"
+    "created_at": "2021-10-04T11:15:11.434625Z",
+    "updated_at": "2021-10-04T11:15:11.434625Z"
   },
   {
-    "id": 354,
+    "id": 424,
     "ingredients": [
       {
-        "product_id": 864,
+        "product_id": 1004,
         "product_name": "Iron Plate",
         "amount": 6
       },
       {
-        "product_id": 865,
+        "product_id": 1005,
         "product_name": "Iron Rod",
         "amount": 6
       }
@@ -1572,14 +1572,14 @@
     "size_width": 2,
     "size_length": 1,
     "size_height": 1,
-    "created_at": "2021-09-27T20:07:20.177291Z",
-    "updated_at": "2021-09-27T20:07:20.177291Z"
+    "created_at": "2021-10-04T11:15:11.469256Z",
+    "updated_at": "2021-10-04T11:15:11.469256Z"
   },
   {
-    "id": 355,
+    "id": 425,
     "ingredients": [
       {
-        "product_id": 840,
+        "product_id": 980,
         "product_name": "Copper Sheet",
         "amount": 1
       }
@@ -1600,14 +1600,14 @@
     "size_width": 2,
     "size_length": null,
     "size_height": 2,
-    "created_at": "2021-09-27T20:07:20.191791Z",
-    "updated_at": "2021-09-27T20:07:20.191791Z"
+    "created_at": "2021-10-04T11:15:11.482447Z",
+    "updated_at": "2021-10-04T11:15:11.482447Z"
   },
   {
-    "id": 356,
+    "id": 426,
     "ingredients": [
       {
-        "product_id": 840,
+        "product_id": 980,
         "product_name": "Copper Sheet",
         "amount": 5
       }
@@ -1628,19 +1628,19 @@
     "size_width": 4,
     "size_length": 4,
     "size_height": 2,
-    "created_at": "2021-09-27T20:07:20.202288Z",
-    "updated_at": "2021-09-27T20:07:20.202288Z"
+    "created_at": "2021-10-04T11:15:11.494946Z",
+    "updated_at": "2021-10-04T11:15:11.494946Z"
   },
   {
-    "id": 357,
+    "id": 427,
     "ingredients": [
       {
-        "product_id": 840,
+        "product_id": 980,
         "product_name": "Copper Sheet",
         "amount": 2
       },
       {
-        "product_id": 908,
+        "product_id": 1048,
         "product_name": "Rotor",
         "amount": 2
       }
@@ -1661,19 +1661,19 @@
     "size_width": 2,
     "size_length": 4,
     "size_height": 2,
-    "created_at": "2021-09-27T20:07:20.214820Z",
-    "updated_at": "2021-09-27T20:07:20.214820Z"
+    "created_at": "2021-10-04T11:15:11.506707Z",
+    "updated_at": "2021-10-04T11:15:11.506707Z"
   },
   {
-    "id": 358,
+    "id": 428,
     "ingredients": [
       {
-        "product_id": 864,
+        "product_id": 1004,
         "product_name": "Iron Plate",
         "amount": 2
       },
       {
-        "product_id": 835,
+        "product_id": 975,
         "product_name": "Concrete",
         "amount": 2
       }
@@ -1694,14 +1694,14 @@
     "size_width": 2,
     "size_length": 1,
     "size_height": null,
-    "created_at": "2021-09-27T20:07:20.232792Z",
-    "updated_at": "2021-09-27T20:07:20.233290Z"
+    "created_at": "2021-10-04T11:15:11.521344Z",
+    "updated_at": "2021-10-04T11:15:11.521844Z"
   },
   {
-    "id": 359,
+    "id": 429,
     "ingredients": [
       {
-        "product_id": 827,
+        "product_id": 967,
         "product_name": "Cable",
         "amount": 1
       }
@@ -1722,24 +1722,24 @@
     "size_width": 0,
     "size_length": null,
     "size_height": 0,
-    "created_at": "2021-09-27T20:07:20.247290Z",
-    "updated_at": "2021-09-27T20:07:20.247290Z"
+    "created_at": "2021-10-04T11:15:11.535843Z",
+    "updated_at": "2021-10-04T11:15:11.535843Z"
   },
   {
-    "id": 360,
+    "id": 430,
     "ingredients": [
       {
-        "product_id": 932,
+        "product_id": 1072,
         "product_name": "Wire",
         "amount": 3
       },
       {
-        "product_id": 865,
+        "product_id": 1005,
         "product_name": "Iron Rod",
         "amount": 1
       },
       {
-        "product_id": 835,
+        "product_id": 975,
         "product_name": "Concrete",
         "amount": 1
       }
@@ -1760,24 +1760,24 @@
     "size_width": 1,
     "size_length": 1,
     "size_height": 7,
-    "created_at": "2021-09-27T20:07:20.256789Z",
-    "updated_at": "2021-09-27T20:07:20.256789Z"
+    "created_at": "2021-10-04T11:15:11.545344Z",
+    "updated_at": "2021-10-04T11:15:11.545344Z"
   },
   {
-    "id": 361,
+    "id": 431,
     "ingredients": [
       {
-        "product_id": 932,
+        "product_id": 1072,
         "product_name": "Wire",
         "amount": 100
       },
       {
-        "product_id": 873,
+        "product_id": 1013,
         "product_name": "Modular Frame",
         "amount": 10
       },
       {
-        "product_id": 916,
+        "product_id": 1056,
         "product_name": "Stator",
         "amount": 5
       }
@@ -1798,24 +1798,24 @@
     "size_width": 6,
     "size_length": 6,
     "size_height": 12,
-    "created_at": "2021-09-27T20:07:20.277290Z",
-    "updated_at": "2021-09-27T20:07:20.277290Z"
+    "created_at": "2021-10-04T11:15:11.564844Z",
+    "updated_at": "2021-10-04T11:15:11.564844Z"
   },
   {
-    "id": 362,
+    "id": 432,
     "ingredients": [
       {
-        "product_id": 902,
+        "product_id": 1042,
         "product_name": "Quickwire",
         "amount": 20
       },
       {
-        "product_id": 918,
+        "product_id": 1058,
         "product_name": "Steel Beam",
         "amount": 4
       },
       {
-        "product_id": 811,
+        "product_id": 951,
         "product_name": "AI Limiter",
         "amount": 1
       }
@@ -1836,24 +1836,24 @@
     "size_width": 2,
     "size_length": 1,
     "size_height": 3,
-    "created_at": "2021-09-27T20:07:20.296293Z",
-    "updated_at": "2021-09-27T20:07:20.296789Z"
+    "created_at": "2021-10-04T11:15:11.583844Z",
+    "updated_at": "2021-10-04T11:15:11.583844Z"
   },
   {
-    "id": 363,
+    "id": 433,
     "ingredients": [
       {
-        "product_id": 858,
+        "product_id": 998,
         "product_name": "Heavy Modular Frame",
         "amount": 1
       },
       {
-        "product_id": 874,
+        "product_id": 1014,
         "product_name": "Motor",
         "amount": 1
       },
       {
-        "product_id": 922,
+        "product_id": 1062,
         "product_name": "Supercomputer",
         "amount": 1
       }
@@ -1874,29 +1874,29 @@
     "size_width": 4,
     "size_length": 4,
     "size_height": null,
-    "created_at": "2021-09-27T20:07:20.315806Z",
-    "updated_at": "2021-09-27T20:07:20.315806Z"
+    "created_at": "2021-10-04T11:15:11.603042Z",
+    "updated_at": "2021-10-04T11:15:11.603042Z"
   },
   {
-    "id": 364,
+    "id": 434,
     "ingredients": [
       {
-        "product_id": 858,
+        "product_id": 998,
         "product_name": "Heavy Modular Frame",
         "amount": 30
       },
       {
-        "product_id": 842,
+        "product_id": 982,
         "product_name": "Crystal Oscillator",
         "amount": 30
       },
       {
-        "product_id": 822,
+        "product_id": 962,
         "product_name": "Beacon",
         "amount": 20
       },
       {
-        "product_id": 827,
+        "product_id": 967,
         "product_name": "Cable",
         "amount": 100
       }
@@ -1917,19 +1917,19 @@
     "size_width": 10,
     "size_length": 10,
     "size_height": 118,
-    "created_at": "2021-09-27T20:07:20.335789Z",
-    "updated_at": "2021-09-27T20:07:20.335789Z"
+    "created_at": "2021-10-04T11:15:11.621892Z",
+    "updated_at": "2021-10-04T11:15:11.621892Z"
   },
   {
-    "id": 365,
+    "id": 435,
     "ingredients": [
       {
-        "product_id": 920,
+        "product_id": 1060,
         "product_name": "Steel Pipe",
         "amount": 1
       },
       {
-        "product_id": 918,
+        "product_id": 1058,
         "product_name": "Steel Beam",
         "amount": 1
       }
@@ -1950,29 +1950,29 @@
     "size_width": 6,
     "size_length": null,
     "size_height": 1,
-    "created_at": "2021-09-27T20:07:20.361814Z",
-    "updated_at": "2021-09-27T20:07:20.361814Z"
+    "created_at": "2021-10-04T11:15:11.645392Z",
+    "updated_at": "2021-10-04T11:15:11.645392Z"
   },
   {
-    "id": 366,
+    "id": 436,
     "ingredients": [
       {
-        "product_id": 874,
+        "product_id": 1014,
         "product_name": "Motor",
         "amount": 10
       },
       {
-        "product_id": 847,
+        "product_id": 987,
         "product_name": "Encased Industrial Beam",
         "amount": 10
       },
       {
-        "product_id": 920,
+        "product_id": 1060,
         "product_name": "Steel Pipe",
         "amount": 30
       },
       {
-        "product_id": 840,
+        "product_id": 980,
         "product_name": "Copper Sheet",
         "amount": 20
       }
@@ -1993,29 +1993,29 @@
     "size_width": 10,
     "size_length": 20,
     "size_height": 31,
-    "created_at": "2021-09-27T20:07:20.376061Z",
-    "updated_at": "2021-09-27T20:07:20.376061Z"
+    "created_at": "2021-10-04T11:15:11.659392Z",
+    "updated_at": "2021-10-04T11:15:11.659392Z"
   },
   {
-    "id": 367,
+    "id": 437,
     "ingredients": [
       {
-        "product_id": 932,
+        "product_id": 1072,
         "product_name": "Wire",
         "amount": 200
       },
       {
-        "product_id": 909,
+        "product_id": 1049,
         "product_name": "Rubber",
         "amount": 50
       },
       {
-        "product_id": 847,
+        "product_id": 987,
         "product_name": "Encased Industrial Beam",
         "amount": 50
       },
       {
-        "product_id": 874,
+        "product_id": 1014,
         "product_name": "Motor",
         "amount": 50
       }
@@ -2036,24 +2036,24 @@
     "size_width": 20,
     "size_length": 20,
     "size_height": 23,
-    "created_at": "2021-09-27T20:07:20.401061Z",
-    "updated_at": "2021-09-27T20:07:20.401061Z"
+    "created_at": "2021-10-04T11:15:11.683892Z",
+    "updated_at": "2021-10-04T11:15:11.683892Z"
   },
   {
-    "id": 368,
+    "id": 438,
     "ingredients": [
       {
-        "product_id": 906,
+        "product_id": 1046,
         "product_name": "Reinforced Iron Plate",
         "amount": 2
       },
       {
-        "product_id": 908,
+        "product_id": 1048,
         "product_name": "Rotor",
         "amount": 2
       },
       {
-        "product_id": 811,
+        "product_id": 951,
         "product_name": "AI Limiter",
         "amount": 1
       }
@@ -2074,19 +2074,19 @@
     "size_width": 4,
     "size_length": 4,
     "size_height": null,
-    "created_at": "2021-09-27T20:07:20.429288Z",
-    "updated_at": "2021-09-27T20:07:20.429288Z"
+    "created_at": "2021-10-04T11:15:11.707872Z",
+    "updated_at": "2021-10-04T11:15:11.707872Z"
   },
   {
-    "id": 369,
+    "id": 439,
     "ingredients": [
       {
-        "product_id": 865,
+        "product_id": 1005,
         "product_name": "Iron Rod",
         "amount": 5
       },
       {
-        "product_id": 932,
+        "product_id": 1072,
         "product_name": "Wire",
         "amount": 8
       }
@@ -2107,29 +2107,29 @@
     "size_width": 6,
     "size_length": 9,
     "size_height": 9,
-    "created_at": "2021-09-27T20:07:20.452775Z",
-    "updated_at": "2021-09-27T20:07:20.452775Z"
+    "created_at": "2021-10-04T11:15:11.729540Z",
+    "updated_at": "2021-10-04T11:15:11.729540Z"
   },
   {
-    "id": 370,
+    "id": 440,
     "ingredients": [
       {
-        "product_id": 835,
+        "product_id": 975,
         "product_name": "Concrete",
         "amount": 500
       },
       {
-        "product_id": 864,
+        "product_id": 1004,
         "product_name": "Iron Plate",
         "amount": 250
       },
       {
-        "product_id": 865,
+        "product_id": 1005,
         "product_name": "Iron Rod",
         "amount": 400
       },
       {
-        "product_id": 932,
+        "product_id": 1072,
         "product_name": "Wire",
         "amount": 1500
       }
@@ -2150,19 +2150,19 @@
     "size_width": 54,
     "size_length": 54,
     "size_height": 118,
-    "created_at": "2021-09-27T20:07:20.468776Z",
-    "updated_at": "2021-09-27T20:07:20.468776Z"
+    "created_at": "2021-10-04T11:15:11.744038Z",
+    "updated_at": "2021-10-04T11:15:11.744038Z"
   },
   {
-    "id": 371,
+    "id": 441,
     "ingredients": [
       {
-        "product_id": 864,
+        "product_id": 1004,
         "product_name": "Iron Plate",
         "amount": 10
       },
       {
-        "product_id": 865,
+        "product_id": 1005,
         "product_name": "Iron Rod",
         "amount": 10
       }
@@ -2183,14 +2183,14 @@
     "size_width": 5,
     "size_length": 10,
     "size_height": 4,
-    "created_at": "2021-09-27T20:07:20.492275Z",
-    "updated_at": "2021-09-27T20:07:20.492275Z"
+    "created_at": "2021-10-04T11:15:11.768547Z",
+    "updated_at": "2021-10-04T11:15:11.768547Z"
   },
   {
-    "id": 372,
+    "id": 442,
     "ingredients": [
       {
-        "product_id": 861,
+        "product_id": 1001,
         "product_name": "HUB Parts",
         "amount": 1
       }
@@ -2211,24 +2211,24 @@
     "size_width": 14,
     "size_length": 26,
     "size_height": 28,
-    "created_at": "2021-09-27T20:07:20.505275Z",
-    "updated_at": "2021-09-27T20:07:20.505275Z"
+    "created_at": "2021-10-04T11:15:11.783058Z",
+    "updated_at": "2021-10-04T11:15:11.783058Z"
   },
   {
-    "id": 373,
+    "id": 443,
     "ingredients": [
       {
-        "product_id": 873,
+        "product_id": 1013,
         "product_name": "Modular Frame",
         "amount": 5
       },
       {
-        "product_id": 822,
+        "product_id": 962,
         "product_name": "Beacon",
         "amount": 5
       },
       {
-        "product_id": 908,
+        "product_id": 1048,
         "product_name": "Rotor",
         "amount": 10
       }
@@ -2249,29 +2249,29 @@
     "size_width": null,
     "size_length": null,
     "size_height": null,
-    "created_at": "2021-09-27T20:07:20.513774Z",
-    "updated_at": "2021-09-27T20:07:20.513774Z"
+    "created_at": "2021-10-04T11:15:11.792057Z",
+    "updated_at": "2021-10-04T11:15:11.792057Z"
   },
   {
-    "id": 374,
+    "id": 444,
     "ingredients": [
       {
-        "product_id": 858,
+        "product_id": 998,
         "product_name": "Heavy Modular Frame",
         "amount": 4
       },
       {
-        "product_id": 834,
+        "product_id": 974,
         "product_name": "Computer",
         "amount": 8
       },
       {
-        "product_id": 835,
+        "product_id": 975,
         "product_name": "Concrete",
         "amount": 50
       },
       {
-        "product_id": 827,
+        "product_id": 967,
         "product_name": "Cable",
         "amount": 25
       }
@@ -2292,34 +2292,34 @@
     "size_width": 32,
     "size_length": 16,
     "size_height": 20,
-    "created_at": "2021-09-27T20:07:20.533774Z",
-    "updated_at": "2021-09-27T20:07:20.533774Z"
+    "created_at": "2021-10-04T11:15:11.811558Z",
+    "updated_at": "2021-10-04T11:15:11.811558Z"
   },
   {
-    "id": 375,
+    "id": 445,
     "ingredients": [
       {
-        "product_id": 874,
+        "product_id": 1014,
         "product_name": "Motor",
         "amount": 8
       },
       {
-        "product_id": 834,
+        "product_id": 974,
         "product_name": "Computer",
         "amount": 10
       },
       {
-        "product_id": 858,
+        "product_id": 998,
         "product_name": "Heavy Modular Frame",
         "amount": 4
       },
       {
-        "product_id": 909,
+        "product_id": 1049,
         "product_name": "Rubber",
         "amount": 50
       },
       {
-        "product_id": 822,
+        "product_id": 962,
         "product_name": "Beacon",
         "amount": 10
       }
@@ -2340,24 +2340,24 @@
     "size_width": null,
     "size_length": null,
     "size_height": null,
-    "created_at": "2021-09-27T20:07:20.557774Z",
-    "updated_at": "2021-09-27T20:07:20.558274Z"
+    "created_at": "2021-10-04T11:15:11.836597Z",
+    "updated_at": "2021-10-04T11:15:11.836597Z"
   },
   {
-    "id": 376,
+    "id": 446,
     "ingredients": [
       {
-        "product_id": 873,
+        "product_id": 1013,
         "product_name": "Modular Frame",
         "amount": 15
       },
       {
-        "product_id": 908,
+        "product_id": 1048,
         "product_name": "Rotor",
         "amount": 20
       },
       {
-        "product_id": 827,
+        "product_id": 967,
         "product_name": "Cable",
         "amount": 50
       }
@@ -2378,24 +2378,24 @@
     "size_width": 16,
     "size_length": 22,
     "size_height": 12,
-    "created_at": "2021-09-27T20:07:20.587775Z",
-    "updated_at": "2021-09-27T20:07:20.587775Z"
+    "created_at": "2021-10-04T11:15:11.868317Z",
+    "updated_at": "2021-10-04T11:15:11.868317Z"
   },
   {
-    "id": 377,
+    "id": 447,
     "ingredients": [
       {
-        "product_id": 908,
+        "product_id": 1048,
         "product_name": "Rotor",
         "amount": 2
       },
       {
-        "product_id": 827,
+        "product_id": 967,
         "product_name": "Cable",
         "amount": 20
       },
       {
-        "product_id": 824,
+        "product_id": 964,
         "product_name": "Biomass",
         "amount": 200
       }
@@ -2416,19 +2416,19 @@
     "size_width": 10,
     "size_length": 11,
     "size_height": 5,
-    "created_at": "2021-09-27T20:07:20.609773Z",
-    "updated_at": "2021-09-27T20:07:20.609773Z"
+    "created_at": "2021-10-04T11:15:11.888259Z",
+    "updated_at": "2021-10-04T11:15:11.888259Z"
   },
   {
-    "id": 378,
+    "id": 448,
     "ingredients": [
       {
-        "product_id": 909,
+        "product_id": 1049,
         "product_name": "Rubber",
         "amount": 4
       },
       {
-        "product_id": 918,
+        "product_id": 1058,
         "product_name": "Steel Beam",
         "amount": 4
       }
@@ -2449,19 +2449,19 @@
     "size_width": 2,
     "size_length": 2,
     "size_height": 2,
-    "created_at": "2021-09-27T20:07:20.630275Z",
-    "updated_at": "2021-09-27T20:07:20.630275Z"
+    "created_at": "2021-10-04T11:15:11.909223Z",
+    "updated_at": "2021-10-04T11:15:11.909223Z"
   },
   {
-    "id": 379,
+    "id": 449,
     "ingredients": [
       {
-        "product_id": 865,
+        "product_id": 1005,
         "product_name": "Iron Rod",
         "amount": 2
       },
       {
-        "product_id": 864,
+        "product_id": 1004,
         "product_name": "Iron Plate",
         "amount": 1
       }
@@ -2482,19 +2482,19 @@
     "size_width": 4,
     "size_length": 4,
     "size_height": 2,
-    "created_at": "2021-09-27T20:07:20.645275Z",
-    "updated_at": "2021-09-27T20:07:20.645275Z"
+    "created_at": "2021-10-04T11:15:11.923222Z",
+    "updated_at": "2021-10-04T11:15:11.923222Z"
   },
   {
-    "id": 380,
+    "id": 450,
     "ingredients": [
       {
-        "product_id": 864,
+        "product_id": 1004,
         "product_name": "Iron Plate",
         "amount": 3
       },
       {
-        "product_id": 835,
+        "product_id": 975,
         "product_name": "Concrete",
         "amount": 3
       }
@@ -2515,24 +2515,24 @@
     "size_width": 8,
     "size_length": 1,
     "size_height": 4,
-    "created_at": "2021-09-27T20:07:20.660276Z",
-    "updated_at": "2021-09-27T20:07:20.660276Z"
+    "created_at": "2021-10-04T11:15:11.937731Z",
+    "updated_at": "2021-10-04T11:15:11.937731Z"
   },
   {
-    "id": 381,
+    "id": 451,
     "ingredients": [
       {
-        "product_id": 840,
+        "product_id": 980,
         "product_name": "Copper Sheet",
         "amount": 20
       },
       {
-        "product_id": 906,
+        "product_id": 1046,
         "product_name": "Reinforced Iron Plate",
         "amount": 10
       },
       {
-        "product_id": 908,
+        "product_id": 1048,
         "product_name": "Rotor",
         "amount": 10
       }
@@ -2553,7 +2553,7 @@
     "size_width": 20,
     "size_length": 19,
     "size_height": 26,
-    "created_at": "2021-09-27T20:07:20.688773Z",
-    "updated_at": "2021-09-27T20:07:20.688773Z"
+    "created_at": "2021-10-04T11:15:11.965761Z",
+    "updated_at": "2021-10-04T11:15:11.965761Z"
   }
 ]

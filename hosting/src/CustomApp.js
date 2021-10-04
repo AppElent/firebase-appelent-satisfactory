@@ -7,8 +7,10 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
 // Custom:
+import { ConfirmProvider } from 'modules/ConfirmationDialog';
+import { BugFormProvider } from 'modules/BugForm';
 import { AppSettingsContext } from './modules/AppSettings';
-import useAuth, { FirebaseContext } from './modules/Firebase';
+import useAuth from './modules/Firebase';
 import i18n, { I18nextProvider } from './modules/I18Next';
 import { SocketIOProvider, socketIoOptions } from './modules/SocketIO';
 import routes from './modules/Routes';
@@ -40,9 +42,6 @@ const CustomAppParent = () => {
 };
 
 const CustomApp = () => {
-  // Set auth listener
-  const authdata = useAuth();
-
   // Get auth data from Firebase
   const auth = getAuth();
 
@@ -61,12 +60,13 @@ const CustomApp = () => {
   const queryClient = new QueryClient();
 
   return (
-    <SocketIOProvider url="" opts={socketIoOptions}>
-      <QueryClientProvider client={queryClient}>
-        <I18nextProvider i18n={i18n}>
-          <AppSettingsContext.Provider value={{ appsettings, setAppSettings }}>
-            <FirebaseContext.Provider value={authdata}>
-              {/* <CacheContext.Provider
+    <ConfirmProvider>
+      <BugFormProvider>
+        <SocketIOProvider url="" opts={socketIoOptions}>
+          <QueryClientProvider client={queryClient}>
+            <I18nextProvider i18n={i18n}>
+              <AppSettingsContext.Provider value={{ appsettings, setAppSettings }}>
+                {/* <CacheContext.Provider
                 value={{
                   data: cacheData,
                   get: getCache(cacheData),
@@ -75,21 +75,22 @@ const CustomApp = () => {
                   clearKey: clearKey(setCacheData),
                 }}
               > */}
-              <SnackbarProvider
-                maxSnack={3}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'right',
-                }}
-              >
-                {content}
-              </SnackbarProvider>
-              {/* </CacheContext.Provider> */}
-            </FirebaseContext.Provider>
-          </AppSettingsContext.Provider>
-        </I18nextProvider>
-      </QueryClientProvider>
-    </SocketIOProvider>
+                <SnackbarProvider
+                  maxSnack={3}
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'right',
+                  }}
+                >
+                  {content}
+                </SnackbarProvider>
+                {/* </CacheContext.Provider> */}
+              </AppSettingsContext.Provider>
+            </I18nextProvider>
+          </QueryClientProvider>
+        </SocketIOProvider>
+      </BugFormProvider>
+    </ConfirmProvider>
   );
 };
 

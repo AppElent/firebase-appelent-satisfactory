@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import {
   Box,
   Card,
+  CardActionArea,
   CardContent,
   Divider,
   Grid,
   Typography
 } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const RecipeCard = ({
   recipe, modal, ...rest
@@ -21,36 +23,37 @@ const RecipeCard = ({
     }}
     {...rest}
   >
-    <CardContent>
-      <Typography
-        align="center"
-        color="textPrimary"
-        gutterBottom
-        variant="h4"
-      >
-        {recipe.displayname || 'No name'}
-      </Typography>
-      <Typography
-        align="center"
-        color="textPrimary"
-        variant="body1"
-      >
-        Machine:
-        {' '}
-        {recipe.machine?.displayname || ''}
-        <br />
-        {recipe.type === 'default' && 'Default'}
-      </Typography>
-    </CardContent>
-    <Box sx={{ flexGrow: 1 }} />
-    <Divider />
-    <Box sx={{ p: 2 }}>
-      <Grid
-        container
-        spacing={2}
-        sx={{ justifyContent: 'space-between' }}
-      >
-        {recipe.ingredients?.length > 0
+    <CardActionArea component={Link} to={`${window.location.pathname}/${recipe.id}`}>
+      <CardContent>
+        <Typography
+          align="center"
+          color="textPrimary"
+          gutterBottom
+          variant="h4"
+        >
+          {recipe.displayname || 'No name'}
+        </Typography>
+        <Typography
+          align="center"
+          color="textPrimary"
+          variant="body1"
+        >
+          Machine:
+          {' '}
+          {recipe.machine?.displayname || ''}
+          <br />
+          {recipe.type === 'default' && 'Default'}
+        </Typography>
+
+        <Box sx={{ flexGrow: 1 }} />
+        <Divider />
+        <Box sx={{ p: 2 }}>
+          <Grid
+            container
+            spacing={2}
+            sx={{ justifyContent: 'space-between' }}
+          >
+            {recipe.ingredients?.length > 0
         && (
         <Grid
           item
@@ -81,7 +84,7 @@ const RecipeCard = ({
           </Typography>
         </Grid>
         )}
-        {recipe.products?.length > 0
+            {recipe.products?.length > 0
         && (
         <Grid
           item
@@ -112,11 +115,13 @@ const RecipeCard = ({
           </Typography>
         </Grid>
         )}
-      </Grid>
-    </Box>
-
+          </Grid>
+        </Box>
+      </CardContent>
+    </CardActionArea>
   </Card>
 );
+
 RecipeCard.propTypes = {
   recipe: PropTypes.object.isRequired
 };

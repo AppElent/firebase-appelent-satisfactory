@@ -14,6 +14,7 @@ import { getAuth, signOut } from 'firebase/auth';
 import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
 import InputIcon from '@material-ui/icons/Input';
+import { BugFormButton } from 'modules/BugForm';
 import Logo from './Logo';
 
 const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
@@ -40,6 +41,9 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
           </Typography>
         </Hidden>
         <Box sx={{ flexGrow: 1 }} />
+        <BugFormButton variant="contained" color="error">
+          Submit bug
+        </BugFormButton>
         <Hidden lgDown>
           <IconButton color="inherit" size="large">
             <Badge

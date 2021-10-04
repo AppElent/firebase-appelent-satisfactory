@@ -6,9 +6,11 @@ import {
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { deleteUser, getAuth, updatePassword } from 'firebase/auth';
+import { useConfirm } from 'modules/ConfirmationDialog';
 
 const SatisfactorySettingsView = () => {
   const navigate = useNavigate();
+  const confirm = useConfirm();
 
   return (
     <>
@@ -112,17 +114,16 @@ const SatisfactorySettingsView = () => {
             <Card>
               <Formik
                 initialValues={{}}
-                onSubmit={() => {
-                  const auth = getAuth();
-                  deleteUser(auth.currentUser).then(() => {
-                  // User deleted.
-                  }).then(() => {
+                onSubmit={async () => {
+                  try {
+                    await confirm({ description: 'Are you sure you want to delete your user account? Any Games and Factories you own are deleted as well.' });
+                    const auth = getAuth();
+
+                    await deleteUser(auth.currentUser);
                     navigate('/', { replace: true });
-                  }).catch((error) => {
-                    console.log(error);
-                  // An error ocurred
-                  // ...
-                  });
+                  } catch (error) {
+                    console.log('User cancelled deletion', error);
+                  }
                 }}
               >
                 {(formik) => (
