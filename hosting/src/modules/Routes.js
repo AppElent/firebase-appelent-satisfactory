@@ -14,11 +14,13 @@ import SatisfactoryFactories from 'pages/SatisfactoryFactories';
 import SatisfactoryGames from 'pages/SatisfactoryGames';
 import SatisfactoryProductList from 'pages/SatisfactoryProductList';
 import SatisfactoryRecipe from 'pages/SatisfactoryRecipe';
+import SatisfactoryProduct from 'pages/SatisfactoryProduct';
 import SatisfactorySettings from 'pages/SatisfactorySettings';
 import Settings from 'pages/Settings';
 import TermsAndConditions from 'pages/TermsAndConditions';
 import TestPage from 'pages/TestPage';
 import PrivacyPolicy from 'pages/PrivacyPolicy';
+import SatisfactoryBuildable from 'pages/SatisfactoryBuildable';
 
 const routes = (isLoggedIn) => [
   {
@@ -50,7 +52,9 @@ const routes = (isLoggedIn) => [
       { path: 'recipes', element: <SatisfactoryRecipeList /> },
       { path: 'recipes/:id', element: <SatisfactoryRecipe /> },
       { path: 'products', element: <SatisfactoryProductList /> },
+      { path: 'products/:id', element: <SatisfactoryProduct /> },
       { path: 'buildables', element: <SatisfactoryBuildableList /> },
+      { path: 'buildables/:id', element: <SatisfactoryBuildable /> },
       { path: 'testpage', element: <TestPage /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]

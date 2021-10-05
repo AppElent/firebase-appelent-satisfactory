@@ -5,12 +5,19 @@ import {
 } from '@material-ui/core';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { deleteUser, getAuth, updatePassword } from 'firebase/auth';
+import {
+  deleteUser, getAuth, updatePassword, reauthenticateWithCredential, EmailAuthProvider
+} from 'firebase/auth';
 import { useConfirm } from 'modules/ConfirmationDialog';
+import { useSnackbar, useSnackbarNotifications } from 'modules/Snackbar';
 
 const SatisfactorySettingsView = () => {
+  const { enqueueSnackbar } = useSnackbar();
+  const { notifications } = useSnackbarNotifications();
   const navigate = useNavigate();
   const confirm = useConfirm();
+
+  console.log(notifications);
 
   return (
     <>
@@ -28,25 +35,36 @@ const SatisfactorySettingsView = () => {
           <Box sx={{ pt: 3 }}>
             <Card>
               <Formik
-                initialValues={{ password: '', confirm: '' }}
+                initialValues={{ password: '', confirm: '', oldpassword: '' }}
                 validationSchema={
                 Yup.object().shape({
-                  password: Yup.string().max(255).min(6).required('Password is required'),
+                  oldpassword: Yup.string().max(255).min(6).required('Old password is required'),
+                  password: Yup.string().max(255).min(6).required('Password is required')
+                    .notOneOf([Yup.ref('oldpassword'), null], 'Passwords can not be the same'),
                   confirm: Yup.string()
                     .oneOf([Yup.ref('password'), null], 'Passwords must match')
+
                 })
               }
-                onSubmit={(values, { setSubmitting }) => {
-                  const auth = getAuth();
-                  updatePassword(auth.currentUser, values.password).then(() => {
-                  // Update successful.
-                  }).then(() => {
-                    setSubmitting(false);
-                  }).catch((error) => {
+                onSubmit={async (values, { setSubmitting }) => {
+                  try {
+                    const auth = getAuth();
+                    const credential = EmailAuthProvider.credential(
+                      auth.currentUser.email,
+                      values.oldpassword
+                    );
+                    await reauthenticateWithCredential(auth.currentUser, credential);
+                    await updatePassword(auth.currentUser, values.password);
+                    // Update successful.
+                    enqueueSnackbar('Successfully updated password', { variant: 'success' });
+                  } catch (error) {
                     console.log(error);
-                  // An error ocurred
-                  // ...
-                  });
+                    let { message } = error;
+                    if (error.code === 'auth/wrong-password') message = "Old password doesn't match";
+                    enqueueSnackbar(`Error updating password: ${message}`, { variant: 'error' });
+                  } finally {
+                    setSubmitting(false);
+                  }
                 }}
               >
                 {(
@@ -60,12 +78,22 @@ const SatisfactorySettingsView = () => {
                     />
                     <Divider />
                     <CardContent>
-
+                      <TextField
+                        error={Boolean(formik.touched.oldpassword && formik.errors.oldpassword)}
+                        fullWidth
+                        helperText={formik.touched.oldpassword && formik.errors.oldpassword}
+                        label="Old password"
+                        margin="normal"
+                        {...formik.getFieldProps('oldpassword')}
+                        name="oldpassword"
+                    // onChange={formik.handleChange}
+                        type="password"
+                      />
                       <TextField
                         error={Boolean(formik.touched.password && formik.errors.password)}
                         fullWidth
                         helperText={formik.touched.password && formik.errors.password}
-                        label="Password"
+                        label="New password"
                         margin="normal"
                         {...formik.getFieldProps('password')}
                         name="password"
@@ -76,7 +104,7 @@ const SatisfactorySettingsView = () => {
                         error={Boolean(formik.touched.confirm && formik.errors.confirm)}
                         fullWidth
                         helperText={formik.touched.confirm && formik.errors.confirm}
-                        label="Confirm password"
+                        label="Confirm new password"
                         margin="normal"
                         {...formik.getFieldProps('confirm')}
                         name="confirm"
@@ -97,7 +125,7 @@ const SatisfactorySettingsView = () => {
                     >
                       <Button
                         color="primary"
-                        disabled={formik.isSubmitting}
+                        disabled={formik.isSubmitting || !formik.isValid}
                         onClick={formik.handleSubmit}
                         variant="contained"
                       >

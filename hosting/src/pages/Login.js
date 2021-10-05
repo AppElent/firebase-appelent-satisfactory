@@ -71,7 +71,7 @@ const Login = () => {
                   // Signed in
                   // const { user } = userCredential;
                   console.log(userCredential);
-                  navigate('/', { replace: true });
+                  navigate(-1, { replace: true });
                 })
                 .catch((error) => {
                   // const errorCode = error.code;
@@ -124,6 +124,7 @@ const Login = () => {
                         signInWithPopup(auth, provider)
                           .then((result) => {
                             console.log(result);
+                            navigate(-1, { replace: true });
                             // The signed-in user info.
                             // const { user } = result;
 
@@ -166,6 +167,7 @@ const Login = () => {
                         signInWithPopup(auth, googleprovider)
                           .then((result) => {
                             console.log(result);
+                            navigate(-1, { replace: true });
                             // This gives you a Google Access Token. You can use it to access the Google API.
                             // const credential = GoogleAuthProvider.credentialFromResult(result);
                             // const token = credential.accessToken;

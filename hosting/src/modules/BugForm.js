@@ -8,6 +8,8 @@ import {
 import { useFormik } from 'formik';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
+import { useSnackbar } from 'notistack';
+import * as Yup from 'yup';
 
 export const BugFormContext = createContext();
 
@@ -79,12 +81,18 @@ export const BugFormProvider = ({ children, defaultOptions }) => {
 export const BugForm = ({
   modal, options
 }) => {
+  const { enqueueSnackbar } = useSnackbar();
   const formik = useFormik({
     initialValues: { issue: '', type: 'bug' },
     onSubmit: async () => {
       await options.submitForm(formik.values);
       modal.hideModal();
-    }
+      enqueueSnackbar('Sucesfully submitted', { variant: 'success' });
+    },
+    validationSchema:
+      Yup.object().shape({
+        issue: Yup.string().min(20).required('Message is required')
+      })
   });
 
   return (
@@ -109,6 +117,8 @@ export const BugForm = ({
           </Select>
         </FormControl>
         <TextField
+          error={Boolean(formik.touched.issue && formik.errors.issue)}
+          helperText={formik.touched.issue && formik.errors.issue}
           autoFocus
           margin="dense"
           id="issue"

@@ -3,20 +3,20 @@ import {
   Box, Container
 } from '@material-ui/core';
 import { useParams } from 'react-router-dom';
-import recipes from 'data/recipes.json';
+import buildables from 'data/buildables.json';
 
-const SatisfactoryRecipe = () => {
+const SatisfactoryBuildable = () => {
   const params = useParams();
 
   const id = parseInt(params.id, 10);
 
-  const recipe = recipes.find((item) => item.id === id);
+  const buildable = buildables.find((item) => item.id === id);
 
   return (
     <>
       <Helmet>
         <title>
-          {recipe.displayname}
+          {buildable.displayname}
           {' '}
           | Satisfactory: FICSIT! Management Console
         </title>
@@ -29,12 +29,12 @@ const SatisfactoryRecipe = () => {
         }}
       >
         <Container maxWidth="lg">
-          {recipe && JSON.stringify(recipe, null, 2)}
-          {!recipe && <>No recipe found</>}
+          {buildable && JSON.stringify(buildable, null, 2)}
+          {!buildable && <>No buildable found</>}
         </Container>
       </Box>
     </>
   );
 };
 
-export default SatisfactoryRecipe;
+export default SatisfactoryBuildable;

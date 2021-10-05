@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-import { SnackbarProvider } from 'notistack';
+// import { SnackbarProvider } from 'notistack';
+import { SnackbarProvider } from 'modules/Snackbar';
 import { useRoutes } from 'react-router-dom';
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
@@ -60,13 +61,21 @@ const CustomApp = () => {
   const queryClient = new QueryClient();
 
   return (
-    <ConfirmProvider>
-      <BugFormProvider>
-        <SocketIOProvider url="" opts={socketIoOptions}>
-          <QueryClientProvider client={queryClient}>
-            <I18nextProvider i18n={i18n}>
-              <AppSettingsContext.Provider value={{ appsettings, setAppSettings }}>
-                {/* <CacheContext.Provider
+    <I18nextProvider i18n={i18n}>
+      <SnackbarProvider
+        maxSnack={3}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'right',
+        }}
+      >
+        <QueryClientProvider client={queryClient}>
+          <ConfirmProvider>
+            <BugFormProvider>
+              <SocketIOProvider url="" opts={socketIoOptions}>
+
+                <AppSettingsContext.Provider value={{ appsettings, setAppSettings }}>
+                  {/* <CacheContext.Provider
                 value={{
                   data: cacheData,
                   get: getCache(cacheData),
@@ -75,22 +84,18 @@ const CustomApp = () => {
                   clearKey: clearKey(setCacheData),
                 }}
               > */}
-                <SnackbarProvider
-                  maxSnack={3}
-                  anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'right',
-                  }}
-                >
+
                   {content}
-                </SnackbarProvider>
-                {/* </CacheContext.Provider> */}
-              </AppSettingsContext.Provider>
-            </I18nextProvider>
-          </QueryClientProvider>
-        </SocketIOProvider>
-      </BugFormProvider>
-    </ConfirmProvider>
+
+                  {/* </CacheContext.Provider> */}
+                </AppSettingsContext.Provider>
+
+              </SocketIOProvider>
+            </BugFormProvider>
+          </ConfirmProvider>
+        </QueryClientProvider>
+      </SnackbarProvider>
+    </I18nextProvider>
   );
 };
 

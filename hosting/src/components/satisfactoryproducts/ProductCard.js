@@ -3,12 +3,14 @@ import {
   Avatar,
   Box,
   Card,
+  CardActionArea,
   CardContent,
   Divider,
   Grid,
   Typography
 } from '@material-ui/core';
 import { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 
 const ProductCard = ({
   product, modal, ...rest
@@ -22,45 +24,46 @@ const ProductCard = ({
     }}
     {...rest}
   >
-    <CardContent>
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          pb: 3
-        }}
-      >
-        <Avatar
-          alt="Product"
+    <CardActionArea component={Link} to={`${window.location.pathname}/${product.id}`}>
+      <CardContent>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            pb: 3
+          }}
+        >
+          <Avatar
+            alt="Product"
           // src={product.image_link?.split('?')[0]}
-          variant="square"
-        />
-      </Box>
-      <Typography
-        align="center"
-        color="textPrimary"
-        gutterBottom
-        variant="h4"
-      >
-        {product.displayname || 'No name'}
-      </Typography>
-      <Typography
-        align="center"
-        color="textPrimary"
-        variant="body1"
-      >
-        {product.description || 'No description'}
-      </Typography>
-    </CardContent>
-    <Box sx={{ flexGrow: 1 }} />
-    <Divider />
-    <Box sx={{ p: 2 }}>
-      <Grid
-        container
-        spacing={2}
-        sx={{ justifyContent: 'space-between' }}
-      >
-        {product.needed_for?.length > 0
+            variant="square"
+          />
+        </Box>
+        <Typography
+          align="center"
+          color="textPrimary"
+          gutterBottom
+          variant="h4"
+        >
+          {product.displayname || 'No name'}
+        </Typography>
+        <Typography
+          align="center"
+          color="textPrimary"
+          variant="body1"
+        >
+          {product.description || 'No description'}
+        </Typography>
+
+        <Box sx={{ flexGrow: 1 }} />
+        <Divider />
+        <Box sx={{ p: 2 }}>
+          <Grid
+            container
+            spacing={2}
+            sx={{ justifyContent: 'space-between' }}
+          >
+            {product.needed_for?.length > 0
         && (
         <Grid
           item
@@ -95,7 +98,7 @@ const ProductCard = ({
           </Typography>
         </Grid>
         )}
-        {product.needed_for_buildable?.length > 0
+            {product.needed_for_buildable?.length > 0
         && (
         <Grid
           item
@@ -126,9 +129,10 @@ const ProductCard = ({
           </Typography>
         </Grid>
         )}
-      </Grid>
-    </Box>
-
+          </Grid>
+        </Box>
+      </CardContent>
+    </CardActionArea>
   </Card>
 );
 ProductCard.propTypes = {
