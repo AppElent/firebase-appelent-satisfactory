@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet';
 import {
-  Accordion, AccordionSummary, AccordionDetails, Box, Card, CardContent, Container, Typography
+  Accordion, AccordionSummary, AccordionDetails, Box, Container, Typography
 } from '@material-ui/core';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useParams } from 'react-router-dom';
