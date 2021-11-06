@@ -17,33 +17,94 @@ const SatisfactoryProduct = () => {
 
   const product = products.find((item) => item.id === id);
 
+  const getOutputAmount = (productVar) => {
+    const recipeObjectInside = recipes.find((recipe) => recipe.id === productVar.default_recipe.id);
+    const productOutput = recipeObjectInside.products.find((prd) => prd.product_id === productVar.id);
+    return productOutput.amount;
+  };
+
   const position = { x: 0, y: 0 };
   const edgeType = 'smoothstep';
   const elements = [{
-    id: product.id,
+    id: `${product.id}`,
     type: 'output',
-    data: { label: product.displayname },
+    data: { label: `${getOutputAmount(product)} x ${product.displayname}` },
     position,
   }];
 
-  const recipeObject = recipes.find((recipe) => recipe.id === product.default_recipe.id);
-  const { ingredients } = recipeObject;
-  ingredients.forEach((ingredient) => {
-    const ingredientObject = products.find((singleproduct) => singleproduct.id === ingredient.product_id);
-    elements.push({
-      id: ingredientObject.id,
-      data: { label: `${ingredient.amount} x ${ingredientObject.displayname}` },
-      position
+  // const recipeObject = recipes.find((recipe) => recipe.id === product.default_recipe.id);
+  // const { ingredients } = recipeObject;
+  // ingredients.forEach((ingredient) => {
+  //   const ingredientObject = products.find((singleproduct) => singleproduct.id === ingredient.product_id);
+  //   elements.push({
+  //     id: `${ingredientObject.id}`,
+  //     data: { label: `${ingredientObject.displayname}` },
+  //     position
+  //   });
+  //   elements.push({
+  //     id: `${product.id}-${ingredient.product_id}`,
+  //     source: `${ingredientObject.id}`,
+  //     target: `${product.id}`,
+  //     type: edgeType,
+  //     animated: true,
+  //     label: `${ingredient.amount}`
+  //   });
+  // });
+
+  const isCoreProduct = (ingredientObject, nest) => {
+    if (nest && ingredientObject.default_recipe && !(ingredientObject.default_recipe.displayname.startsWith('Unpackage') || ingredientObject.displayname === 'Water')) {
+      return true;
+    }
+    return false;
+  };
+
+  const getFlowFromProduct = (productVar, nest = false) => {
+    if (!productVar.default_recipe) return;
+    const recipeObjectInside = recipes.find((recipe) => recipe.id === productVar.default_recipe.id);
+    const { ingredients: ingredientss } = recipeObjectInside;
+    // console.log('recipe', recipeObjectInside.displayname);
+    ingredientss.forEach((ingredient) => {
+      console.log('ingredient', ingredient.product_name);
+      const ingredientObject = products.find((product2) => product2.id === ingredient.product_id);
+      console.log('ingredientproduct', ingredientObject.displayname);
+      const found = elements.some((el) => el.id === `${ingredientObject.id}`);
+      if (!found) {
+        let label = `${ingredientObject.displayname}`;
+        if (isCoreProduct(ingredientObject, nest)) {
+          label = `${getOutputAmount(ingredientObject)} x ${ingredientObject.displayname}`;
+        }
+        elements.push({
+          id: `${ingredientObject.id}`,
+          data: { label },
+          position
+        });
+      }
+      const found2 = elements.some((el) => el.id === `${productVar.id}-${ingredient.product_id}`);
+      console.log(found2, productVar, ingredient);
+      if (!found2) {
+        elements.push({
+          id: `${productVar.id}-${ingredient.product_id}`,
+          source: `${ingredientObject.id}`,
+          target: `${productVar.id}`,
+          type: edgeType,
+          animated: true,
+          label: `${ingredient.amount}`
+        });
+      } else {
+        console.log(999, productVar, ingredient);
+      }
+
+      if (isCoreProduct(ingredientObject, nest)) {
+        if (nest) getFlowFromProduct(ingredientObject);
+      }
     });
-    elements.push({
-      id: `${product.id}-${ingredient.product_id}`,
-      source: ingredientObject.id,
-      target: product.id,
-      type: edgeType,
-      animated: true,
-      // label: `Amount: ${ingredient.amount}`
-    });
-  });
+  };
+
+  getFlowFromProduct(product, true);
+
+  console.log(getFlowFromProduct(product));
+
+  console.log('recipes without ingredient', recipes.filter((onerecipe) => onerecipe.ingredients.length === 0));
 
   console.log(elements);
 

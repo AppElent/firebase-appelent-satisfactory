@@ -126,6 +126,7 @@ export const BugForm = ({
           minRows={6}
           multiline
           name="issue"
+          onBlur={formik.handleBlur}
           onChange={formik.handleChange}
           placeholder="Describe here"
           type="text"

@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
 
-export const AppSettingsContext = React.createContext({});
+export const AppCacheContext = React.createContext({});
 
-export const useAppSettings = () => useContext(AppSettingsContext);
+export const useAppCache = () => (useContext(AppCacheContext));
 
-export const AppSettingsContextProvider = ({ children, defaultValue }) => {
+export const AppCacheContextProvider = ({ children, defaultValue }) => {
   const [cacheState, setCacheState] = useState(defaultValue);
   const set = (key, value) => {
     console.log(key, value);
@@ -12,17 +12,24 @@ export const AppSettingsContextProvider = ({ children, defaultValue }) => {
   };
   const get = (key) => (cacheState[key]);
 
+  const del = (key) => {
+    const tempstate = cacheState;
+    delete tempstate[key];
+    setCacheState(tempstate);
+  };
+
   const value = {
     set,
     get,
+    del,
     values: cacheState
   };
 
   return (
     <>
-      <AppSettingsContext.Provider value={value}>
+      <AppCacheContext.Provider value={value}>
         {children}
-      </AppSettingsContext.Provider>
+      </AppCacheContext.Provider>
     </>
   );
 };

@@ -3,11 +3,10 @@ import { Helmet } from 'react-helmet';
 import {
   Box, Container, Grid
 } from '@material-ui/core';
-import { getAuth } from 'firebase/auth';
 import {
-  query, collection, getFirestore, where
+  query, collection, getFirestore
 } from 'firebase/firestore';
-import { useCollectionDataOnce, useCollectionData } from 'react-firebase-hooks/firestore';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { Plus as PlusIcon } from 'react-feather';
 
 import GameSelect from 'components/satisfactoryfactories/GameSelect';
@@ -18,25 +17,18 @@ import useModalWithData from 'hooks/useModalWithData';
 import Fab from 'components/Fab';
 import Search from 'components/Search';
 import useSearch from 'hooks/useSearch';
+import { useAppCache } from 'modules/AppCache';
 
 const SatisfactoryFactories = () => {
   const db = getFirestore();
-  const auth = getAuth();
-  const [games, gamesLoading] = useCollectionDataOnce(query(collection(db, 'games'), where('players', 'array-contains', auth.currentUser.uid)), { idField: 'id' });
+  // const [games, gamesLoading] = useCollectionDataOnce(query(collection(db, 'games'), where('players', 'array-contains', auth.currentUser.uid)), { idField: 'id' });
+  const { values } = useAppCache();
+  const { games } = values;
   const [defaultGame, , removeDefaultGame] = useLocalStorage('defaultGame');
   const [selectedGame, setSelectedGame] = useState();
   const [defaultValueChecked, setDefaultValueChecked] = useState(false);
   let queryVar;
   let queryOptionVar;
-  // if (games && games.length > 0) {
-  //   if (!defaultGame) {
-  //     setDefaultGame(games[0].id);
-  //     setSelectedGame(games[0].id);
-  //   } else if (!games.find((game) => (game.id === defaultGame))) {
-  //     setDefaultGame(games[0].id);
-  //     setSelectedGame(games[0].id);
-  //   }
-  // }
 
   useEffect(() => {
     let setGameTo;
@@ -67,7 +59,7 @@ const SatisfactoryFactories = () => {
   const modal = useModalWithData();
   const [filteredFactories, search, setSearch] = useSearch(factories || [], ['name', 'description']);
 
-  if (gamesLoading) return (<></>);
+  // if (gamesLoading) return (<></>);
 
   if (!selectedGame) return <>Create game first</>;
 
@@ -106,9 +98,10 @@ const SatisfactoryFactories = () => {
               ))}
             </Grid>
           </Box>
-          {games && (
+          {games && factories !== undefined && (
           <CreateOrEditDialog
             game={gameObject}
+            factories={factories}
             modal={modal}
           />
           )}

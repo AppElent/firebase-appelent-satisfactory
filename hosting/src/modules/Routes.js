@@ -21,6 +21,7 @@ import TermsAndConditions from 'pages/TermsAndConditions';
 import TestPage from 'pages/TestPage';
 import PrivacyPolicy from 'pages/PrivacyPolicy';
 import SatisfactoryBuildable from 'pages/SatisfactoryBuildable';
+import SatisfactoryHome from 'pages/SatisfactoryHome';
 
 const routes = (isLoggedIn) => [
   {
@@ -48,7 +49,7 @@ const routes = (isLoggedIn) => [
     path: 'open',
     element: <DashboardLayout />,
     children: [
-      { path: 'home', element: <></> },
+      { path: 'home', element: <SatisfactoryHome /> },
       { path: 'recipes', element: <SatisfactoryRecipeList /> },
       { path: 'recipes/:id', element: <SatisfactoryRecipe /> },
       { path: 'products', element: <SatisfactoryProductList /> },

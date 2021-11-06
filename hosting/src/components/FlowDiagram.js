@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactFlow, {
   ReactFlowProvider,
   addEdge,
@@ -159,6 +159,12 @@ const LayoutFlow = ({ elementsPassed }) => {
   //     },
   //     [elements]
   //   );
+
+  useEffect(() => {
+    console.log(elementsPassed);
+    const elementsNew = getLayoutedElements(elementsPassed);
+    setElements(elementsNew);
+  }, [elementsPassed]);
 
   return (
     <div className="layoutflow">

@@ -84,7 +84,7 @@ const FactoryCard = ({
             >
               {factory.numberOfPlayers}
               {' '}
-              Players
+              Lines
             </Typography>
           </Grid>
         </Grid>
@@ -100,7 +100,7 @@ const FactoryCard = ({
         <Button
           color="primary"
           onClick={() => {
-            modal.setSelected(factory);
+            modal.setSelected(factory.id);
             modal.showModal();
           }}
           variant="contained"
