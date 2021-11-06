@@ -81,7 +81,7 @@ const CustomApp = () => {
   }
 
   let selectedGame;
-  if (defaultGame && games.length > 0) {
+  if (defaultGame && games?.length > 0) {
     // If defaultGame cannot be found in games list, delete it and ignore it. Set selectedGame to the first one
     if (!games.find((game) => (game.id === defaultGame))) {
       removeDefaultGame();
@@ -89,7 +89,7 @@ const CustomApp = () => {
     } else {
       selectedGame = defaultGame;
     }
-  } else if (games.length > 0) {
+  } else if (games?.length > 0) {
     // if not default game is set, but there are games, then set to first game
     selectedGame = games[0].id;
   }
