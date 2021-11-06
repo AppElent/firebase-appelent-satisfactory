@@ -206,10 +206,12 @@ export default function CreateOrEditDialog({ game, factories, modal }) {
           <TextField
             margin="dense"
             id="description"
-            label="Description"
+            label="Description / comments"
             onChange={formik.handleChange}
             type="text"
             fullWidth
+            multiline
+            minRows={6}
             value={formik.values.description || ''}
             variant="standard"
           />
