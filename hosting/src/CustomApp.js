@@ -12,9 +12,10 @@ import {
 // Custom:
 import { ConfirmProvider } from 'modules/ConfirmationDialog';
 import { BugFormProvider } from 'modules/BugForm';
-import { AppCacheContextProvider } from 'modules/AppCache';
+import { AppCacheContextProvider, useAppCache } from 'modules/AppCache';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import useLocalStorage from 'hooks/useLocalStorage';
+import { useEffect, useState } from 'react';
 import { AppSettingsContextProvider } from './modules/AppSettings';
 import useAuth from './modules/Firebase';
 import i18n, { I18nextProvider } from './modules/I18Next';
@@ -48,7 +49,13 @@ const CustomAppAuth = () => {
     return (<></>);
   }
 
-  return (<CustomApp />);
+  return (<CustomAppCache />);
+};
+
+const CustomAppCache = () => {
+  const defaultValue = {};
+
+  return (<AppCacheContextProvider defaultValue={defaultValue}><CustomApp /></AppCacheContextProvider>);
 };
 
 const CustomApp = () => {
@@ -71,29 +78,54 @@ const CustomApp = () => {
   };
 
   // Cache
+  const { values, set } = useAppCache();
   const db = getFirestore();
   const queryVar = auth.currentUser ? query(collection(db, 'games'), where('players', 'array-contains', auth.currentUser.uid)) : undefined;
   const [games, gamesLoading] = useCollectionData(queryVar, { idField: 'id' });
-  const [defaultGame, , removeDefaultGame] = useLocalStorage('defaultGame');
+  const [defaultGame, setDefaultGame, removeDefaultGame] = useLocalStorage('defaultGame');
+
+  const [factoryVars, setFactoryVars] = useState({ query: undefined, options: undefined });
+  const [factories, factoriesLoading] = useCollectionData(factoryVars.query, factoryVars.options);
+
+  useEffect(() => {
+    // If games are not loading, set variable in cache
+    if (!gamesLoading) {
+      set('games', games);
+
+      // Check if value is present in games array
+      if (defaultGame && games.find((game) => (game.id === defaultGame))) {
+        // Do nothing
+
+      } else if (games?.length > 0) {
+        // If not present, check if game list > 0 and set the first one in line
+        setDefaultGame(games[0].id);
+      } else if (games?.length === 0) {
+        // If no games, then remove default value
+        removeDefaultGame();
+      }
+
+      if (defaultGame && games.find((game) => (game.id === defaultGame))) {
+        // load factories
+        setFactoryVars({
+          query: query(collection(db, `games/${defaultGame}/factories`)),
+          options: { idField: 'id' }
+        });
+      }
+    }
+  }, [games, defaultGame]);
+
+  useEffect(() => {
+    if (!factoriesLoading) {
+      set('factories', factories);
+    }
+  }, [factories]);
+
+  console.log('selectedGame', defaultGame);
+  console.log(games, defaultGame, factories, values);
 
   if (gamesLoading) {
     return <></>;
   }
-
-  let selectedGame;
-  if (defaultGame && games?.length > 0) {
-    // If defaultGame cannot be found in games list, delete it and ignore it. Set selectedGame to the first one
-    if (!games.find((game) => (game.id === defaultGame))) {
-      removeDefaultGame();
-      selectedGame = games[0].id;
-    } else {
-      selectedGame = defaultGame;
-    }
-  } else if (games?.length > 0) {
-    // if not default game is set, but there are games, then set to first game
-    selectedGame = games[0].id;
-  }
-  const cache = { games, selectedGame };
 
   return (
     <I18nextProvider i18n={i18n}>
@@ -108,11 +140,9 @@ const CustomApp = () => {
           <ConfirmProvider>
             <BugFormProvider>
               <SocketIOProvider url="" opts={socketIoOptions}>
-                <AppCacheContextProvider defaultValue={cache}>
-                  <AppSettingsContextProvider defaultValue={appSettings}>
-                    {content}
-                  </AppSettingsContextProvider>
-                </AppCacheContextProvider>
+                <AppSettingsContextProvider defaultValue={appSettings}>
+                  {content}
+                </AppSettingsContextProvider>
               </SocketIOProvider>
             </BugFormProvider>
           </ConfirmProvider>

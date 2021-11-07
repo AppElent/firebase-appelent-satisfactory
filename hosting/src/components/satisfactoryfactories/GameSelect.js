@@ -17,9 +17,9 @@ const GameSelect = ({
   setSelectedGame,
   ...props
 }) => {
-  const selectedValue = (list && list.lenght > 0 && !!list.find((item) => (item.id === selected))) ? list.find((item) => (item.id === selected)) : list[0]?.id;
+  // const selectedValue = (list && list.lenght > 0 && !!list.find((item) => (item.id === selected))) ? list.find((item) => (item.id === selected)) : list[0]?.id;
 
-  const formik = useFormik({ initialValues: { game: selectedValue }, enableReinitialize: true });
+  const formik = useFormik({ initialValues: { game: selected }, enableReinitialize: true });
 
   useEffect(() => {
     if (formik.values.game !== '') {

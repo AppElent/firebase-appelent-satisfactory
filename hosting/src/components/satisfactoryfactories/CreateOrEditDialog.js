@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import {
-  Autocomplete, Box, Grid, IconButton
+  Autocomplete, Box, Grid, IconButton, Checkbox
 } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -148,6 +148,7 @@ export default function CreateOrEditDialog({ game, factories, modal }) {
     initialValues: {
       name: selectedFactory?.name || '',
       description: selectedFactory?.description || '',
+      ready: selectedFactory?.ready || false,
       recipes: selectedFactory?.recipes || [],
     },
     validationSchema: Yup.object().shape({
@@ -203,18 +204,25 @@ export default function CreateOrEditDialog({ game, factories, modal }) {
             variant="standard"
           />
           {modal.selected && (
-          <TextField
-            margin="dense"
-            id="description"
-            label="Description / comments"
-            onChange={formik.handleChange}
-            type="text"
-            fullWidth
-            multiline
-            minRows={6}
-            value={formik.values.description || ''}
-            variant="standard"
-          />
+          <>
+            <TextField
+              margin="dense"
+              id="description"
+              label="Description / comments"
+              onChange={formik.handleChange}
+              type="text"
+              fullWidth
+              multiline
+              minRows={6}
+              value={formik.values.description || ''}
+              variant="standard"
+            />
+            <Checkbox
+              checked={formik.values.ready}
+              name="ready"
+              onChange={formik.handleChange}
+            />
+          </>
           ) }
           {selectedFactory && (
           <>

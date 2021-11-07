@@ -3,10 +3,6 @@ import { Helmet } from 'react-helmet';
 import {
   Box, Container, Grid
 } from '@material-ui/core';
-import {
-  query, collection, getFirestore
-} from 'firebase/firestore';
-import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { Plus as PlusIcon } from 'react-feather';
 
 import GameSelect from 'components/satisfactoryfactories/GameSelect';
@@ -20,50 +16,25 @@ import useSearch from 'hooks/useSearch';
 import { useAppCache } from 'modules/AppCache';
 
 const SatisfactoryFactories = () => {
-  const db = getFirestore();
-  // const [games, gamesLoading] = useCollectionDataOnce(query(collection(db, 'games'), where('players', 'array-contains', auth.currentUser.uid)), { idField: 'id' });
   const { values } = useAppCache();
-  const { games } = values;
-  const [defaultGame, , removeDefaultGame] = useLocalStorage('defaultGame');
-  const [selectedGame, setSelectedGame] = useState();
-  const [defaultValueChecked, setDefaultValueChecked] = useState(false);
-  let queryVar;
-  let queryOptionVar;
+  const { games, factories } = values;
+  const [defaultGame, setDefaultGame] = useLocalStorage('defaultGame');
+  const [selectedGame, setSelectedGame] = useState(defaultGame);
 
-  useEffect(() => {
-    let setGameTo;
-    if (games && defaultGame && games.length > 0) {
-      // If defaultGame cannot be found in games list, delete it and ignore it. Set selectedGame to the first one
-      if (!games.find((game) => (game.id === defaultGame))) {
-        removeDefaultGame();
-        setGameTo = games[0].id;
-      } else {
-        setGameTo = defaultGame;
-      }
-    } else if (games && games.length === 0) {
-      removeDefaultGame();
-    } else if (games && games.length > 0) {
-      // if not default game is set, but there are games, then set to first game
-      setGameTo = games[0].id;
-    }
-    setSelectedGame(setGameTo);
-    setDefaultValueChecked(true);
-  }, [games, defaultGame]);
-
-  if (defaultValueChecked) {
-    queryVar = query(collection(db, `games/${selectedGame}/factories`));
-    queryOptionVar = { idField: 'id' };
-  }
-
-  const [factories] = useCollectionData(queryVar, queryOptionVar);
   const modal = useModalWithData();
   const [filteredFactories, search, setSearch] = useSearch(factories || [], ['name', 'description']);
 
   // if (gamesLoading) return (<></>);
 
+  useEffect(() => {
+    if (selectedGame) {
+      setDefaultGame(selectedGame);
+    }
+  }, [selectedGame]);
+
   if (!selectedGame) return <>Create game first</>;
 
-  const gameObject = games.find((game) => (game.id === selectedGame)) || {};
+  const gameObject = games?.find((game) => (game.id === selectedGame)) || {};
 
   return (
     <>
