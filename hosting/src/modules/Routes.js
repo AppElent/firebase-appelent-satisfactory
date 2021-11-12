@@ -22,6 +22,7 @@ import TestPage from 'pages/TestPage';
 import PrivacyPolicy from 'pages/PrivacyPolicy';
 import SatisfactoryBuildable from 'pages/SatisfactoryBuildable';
 import SatisfactoryHome from 'pages/SatisfactoryHome';
+import SatisfactoryFactoryOverview from 'pages/SatisfactoryFactoryOverview';
 
 const routes = (isLoggedIn) => [
   {
@@ -41,6 +42,7 @@ const routes = (isLoggedIn) => [
     children: [
       { path: 'games', element: <SatisfactoryGames /> },
       { path: 'factories', element: <SatisfactoryFactories /> },
+      { path: 'factoryoverview', element: <SatisfactoryFactoryOverview /> },
       { path: 'testpage', element: <TestPage /> },
       { path: 'settings', element: <SatisfactorySettings /> },
       { path: '*', element: <Navigate to="/404" /> }

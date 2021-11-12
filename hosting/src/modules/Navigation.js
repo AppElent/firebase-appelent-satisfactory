@@ -16,6 +16,11 @@ const items = [
     title: 'Factories'
   },
   {
+    href: '/app/factoryoverview',
+    icon: LockIcon,
+    title: 'Factory Overview'
+  },
+  {
     href: '/open/products',
     icon: ShoppingBagIcon,
     title: 'Products'
