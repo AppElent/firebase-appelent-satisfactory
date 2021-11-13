@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import {
   Box, Container, Grid
@@ -19,22 +18,13 @@ const SatisfactoryFactories = () => {
   const { values } = useAppCache();
   const { games, factories } = values;
   const [defaultGame, setDefaultGame] = useLocalStorage('defaultGame');
-  const [selectedGame, setSelectedGame] = useState(defaultGame);
 
   const modal = useModalWithData();
   const [filteredFactories, search, setSearch] = useSearch(factories || [], ['name', 'description']);
 
-  // if (gamesLoading) return (<></>);
+  if (!defaultGame) return <>Create game first</>;
 
-  useEffect(() => {
-    if (selectedGame) {
-      setDefaultGame(selectedGame);
-    }
-  }, [selectedGame]);
-
-  if (!selectedGame) return <>Create game first</>;
-
-  const gameObject = games?.find((game) => (game.id === selectedGame)) || {};
+  const gameObject = games?.find((game) => (game.id === defaultGame)) || {};
 
   return (
     <>
@@ -49,7 +39,7 @@ const SatisfactoryFactories = () => {
         }}
       >
         <Container maxWidth="lg">
-          <GameSelect selected={selectedGame} list={games} modal={modal} setSelectedGame={setSelectedGame} />
+          <GameSelect selected={defaultGame} list={games} modal={modal} setSelectedGame={setDefaultGame} />
           <Search placeholder="Search factories" search={search} setSearch={setSearch} />
           <Box sx={{ pt: 3 }}>
             <Grid

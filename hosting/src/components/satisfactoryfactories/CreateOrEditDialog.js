@@ -46,6 +46,7 @@ const FactoryRecipe = ({ formik, i }) => {
       container
       spacing={1}
     >
+      <IconButton onClick={deleteRow} style={{ bottom: 0 }}><DoNotDisturbOnIcon color="error" /></IconButton>
       <Grid
         item
         key={`recipe${i}name`}
@@ -53,7 +54,7 @@ const FactoryRecipe = ({ formik, i }) => {
         md={4}
         xs={6}
       >
-        <IconButton onClick={deleteRow} style={{ bottom: 0 }}><DoNotDisturbOnIcon color="error" /></IconButton>
+
         {/* <TextField
           // error={Boolean(recipeTouched && recipeErrors)}
           // helperText={recipeTouched && recipeErrors}
@@ -70,6 +71,7 @@ const FactoryRecipe = ({ formik, i }) => {
           variant="standard"
         /> */}
         <Autocomplete
+          style={{ paddingTop: 8 }}
           value={formik.values.recipes[i]?.name}
           onChange={handleAutocompleteChange(i)}
           inputValue={inputValue}
@@ -162,11 +164,20 @@ export default function CreateOrEditDialog({ game, factories, modal }) {
     const db = getFirestore();
     if (modal.selected) {
       console.log(modal.selected, game, formik.values);
+      const document = {
+        ...formik.values,
+        lastModified: new Date()
+      };
       const docRef = doc(db, `games/${game.id}/factories`, modal.selected);
-      await setDoc(docRef, formik.values, { merge: true });
+      await setDoc(docRef, document, { merge: true });
       modal.hideModal();
     } else {
-      const docRef = await addDoc(collection(db, `games/${game.id}/factories`), { ...formik.values });
+      const document = {
+        ...formik.values,
+        lastModified: new Date(),
+        created: new Date()
+      };
+      const docRef = await addDoc(collection(db, `games/${game.id}/factories`), document);
       // modal.setSelected({ id: docRef.id, ...formik.values });
       modal.setSelected(docRef.id);
     }

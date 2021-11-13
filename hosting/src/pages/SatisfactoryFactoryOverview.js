@@ -15,55 +15,84 @@ const SatisfactoryFactories = () => {
   const { values } = useAppCache();
   const { games, factories } = values;
   const [defaultGame, setDefaultGame] = useLocalStorage('defaultGame');
-  const [selectedGame, setSelectedGame] = useState(defaultGame);
+  const [factoryList, setFactoryList] = useState([]);
 
   const modal = useModalWithData();
 
-  // if (gamesLoading) return (<></>);
+  if (!defaultGame) return <>Create game first</>;
 
-  useEffect(() => {
-    if (selectedGame) {
-      setDefaultGame(selectedGame);
+  // const factoryList = [];
+  // factories?.forEach((singlefactory) => {
+  //   singlefactory.recipes?.forEach((singlerecipe) => {
+  //     const recipeObject = recipes.find((recipesearch) => recipesearch.displayname === singlerecipe.name);
+  //     const ingredients = recipeObject?.ingredients?.map((ingredient) => {
+  //       const total = ingredient.amount_min * singlerecipe.amount;
+  //       return {
+  //         ...ingredient,
+  //         total
+  //       };
+  //     });
+  //     const products = recipeObject?.products?.map((product) => {
+  //       const total = product.amount_min * singlerecipe.amount;
+  //       return {
+  //         ...product,
+  //         total
+  //       };
+  //     });
+  //     // const ingredientsText = recipeObject?.ingredients.map((oneingredient) => (`${oneingredient.product_name} is`)).join('-');
+  //     const object = {
+  //       ...singlefactory,
+  //       ...singlerecipe,
+  //       factory: singlefactory.name,
+  //       machine: recipeObject.machine.displayname,
+  //       ingredients,
+  //       products
+  //       // ingredientsText
+  //     };
+
+  //     console.log(999, recipeObject);
+  //     factoryList.push(object);
+  //   });
+  // });
+
+  useEffect(async () => {
+    if (factories) {
+      const newFactoryList = [];
+      await factories?.forEach((singlefactory) => {
+        singlefactory.recipes?.forEach((singlerecipe) => {
+          const recipeObject = recipes.find((recipesearch) => recipesearch.displayname === singlerecipe.name);
+          const ingredients = recipeObject?.ingredients?.map((ingredient) => {
+            const total = ingredient.amount_min * singlerecipe.amount;
+            return {
+              ...ingredient,
+              total
+            };
+          });
+          const products = recipeObject?.products?.map((product) => {
+            const total = product.amount_min * singlerecipe.amount;
+            return {
+              ...product,
+              total
+            };
+          });
+          // const ingredientsText = recipeObject?.ingredients.map((oneingredient) => (`${oneingredient.product_name} is`)).join('-');
+          const object = {
+            ...singlefactory,
+            ...singlerecipe,
+            factory: singlefactory.name,
+            machine: recipeObject.machine.displayname,
+            ingredients,
+            products
+            // ingredientsText
+          };
+
+          console.log(999, recipeObject);
+          newFactoryList.push(object);
+        });
+      });
+      setFactoryList(newFactoryList);
     }
-  }, [selectedGame]);
-
-  if (!selectedGame) return <>Create game first</>;
-
-  // const gameObject = games?.find((game) => (game.id === selectedGame)) || {};
-
-  const factoryList = [];
-  factories?.forEach((singlefactory) => {
-    singlefactory.recipes.forEach((singlerecipe) => {
-      const recipeObject = recipes.find((recipesearch) => recipesearch.displayname === singlerecipe.name);
-      const ingredients = recipeObject?.ingredients.map((ingredient) => {
-        const total = ingredient.amount_min * singlerecipe.amount;
-        return {
-          ...ingredient,
-          total
-        };
-      });
-      const products = recipeObject?.products.map((product) => {
-        const total = product.amount_min * singlerecipe.amount;
-        return {
-          ...product,
-          total
-        };
-      });
-      // const ingredientsText = recipeObject?.ingredients.map((oneingredient) => (`${oneingredient.product_name} is`)).join('-');
-      const object = {
-        ...singlefactory,
-        ...singlerecipe,
-        factory: singlefactory.name,
-        machine: recipeObject.machine.displayname,
-        ingredients,
-        products
-        // ingredientsText
-      };
-
-      console.log(999, recipeObject);
-      factoryList.push(object);
-    });
-  });
+  }, [factories]);
 
   console.log(factoryList);
 
@@ -90,7 +119,7 @@ const SatisfactoryFactories = () => {
         }}
       >
         <Container maxWidth="lg">
-          <GameSelect selected={selectedGame} list={games} modal={modal} setSelectedGame={setSelectedGame} />
+          <GameSelect selected={defaultGame} list={games} modal={modal} setSelectedGame={setDefaultGame} />
           {/* <MUIDataTable
             title="Employee List"
             data={data}
@@ -98,7 +127,7 @@ const SatisfactoryFactories = () => {
             options={options}
           /> */}
           <Box sx={{ pt: 3 }}>
-            <MaterialTable columns={columns} data={factoryList} title="All recipes" />
+            <MaterialTable columns={columns} data={factoryList} options={{ pageSize: 10 }} title="All recipes" />
             {/* <Card>
 
               {factories?.map((singlefactory) => {

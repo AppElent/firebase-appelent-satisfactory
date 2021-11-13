@@ -10,6 +10,7 @@ import {
 } from '@material-ui/core';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import { getFirestore, doc, deleteDoc } from 'firebase/firestore';
+import moment from 'moment';
 
 const FactoryCard = ({
   factory, game, modal, ...rest
@@ -65,7 +66,7 @@ const FactoryCard = ({
               sx={{ pl: 1 }}
               variant="body2"
             >
-              {factory.lastModified?.toString() || ''}
+              {factory.lastModified ? moment(factory.lastModified.toDate()).format('MMM Do YY') : ''}
             </Typography>
           </Grid>
           <Grid
@@ -82,9 +83,9 @@ const FactoryCard = ({
               sx={{ pl: 1 }}
               variant="body2"
             >
-              {factory.numberOfPlayers}
+              {factory.recipes?.length || 0}
               {' '}
-              Lines
+              Recipes
             </Typography>
           </Grid>
         </Grid>
